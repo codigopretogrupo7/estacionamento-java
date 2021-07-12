@@ -20,7 +20,7 @@
 
 
 
-        <!-- para usar mysql
+        <!-- para usar  mysql
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>

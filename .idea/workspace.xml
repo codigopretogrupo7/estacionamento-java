@@ -5,7 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="436cbcf2-6aed-4683-8cc4-82337b08712e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/temvaga/model/Estacionamento.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/temvaga/model/Usuario.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/temvaga/model/Vaga.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/temvaga/model/Veiculo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/temvaga/repository/VagaRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/temvaga/controller/EstacionamentoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/temvaga/controller/EstacionamentoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/temvaga/controller/VagaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/temvaga/controller/VagaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/temvaga/model/Database.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/temvaga/model/EstacionamentoModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/temvaga/model/UsuarioModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/temvaga/model/VagaModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/temvaga/model/VeiculoModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/controller/EstacionamentoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/temvaga/controller/EstacionamentoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/controller/VagaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/temvaga/controller/VagaController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/model/Database.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/model/EstacionamentoModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/model/UsuarioModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/model/VagaModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/model/VeiculoModel.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +36,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -31,13 +53,16 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Matheus\Desktop\projetoIntegrador\TemVaga\src\main\resources" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Matheus\Desktop\projetoIntegrador\TemVaga\src\main\java" />
     </key>
@@ -88,5 +113,17 @@
       <updated>1625769767706</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

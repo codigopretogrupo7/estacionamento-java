@@ -20,8 +20,8 @@ public class Veiculo {
     private String placa;
 
 
-    @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "id")
+    @ManyToOne
+    @JoinColumn(name = "fk_id_usuario")
     private Usuario usuario;
 
 }

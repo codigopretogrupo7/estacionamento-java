@@ -17,11 +17,6 @@ public class Telefone {
     private  Integer id;
     private  String Telefone;
 
-    @ManyToOne
-    @JoinColumn(name = "fk_id_usuario")
-    private Usuario usuario;
-
-
 
 
 }

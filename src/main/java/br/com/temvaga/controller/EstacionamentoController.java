@@ -18,7 +18,7 @@ public class EstacionamentoController  {
     EstacionamentoRepository repo;
 
 
-    @RequestMapping("listar")
+    @RequestMapping("/list")
     public ArrayList<Estacionamento> findAll() {
         return repo.findAll();
     }

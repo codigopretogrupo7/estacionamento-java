@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.ArrayList;
 
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -48,8 +49,8 @@ public class Estacionamento {
     private Integer idUsuario;
     private  String imgURL;
 
-    @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "id")
+    @ManyToOne
+    @JoinColumn(name = "fk_id_usuario")
     private Usuario usuario;
 
 

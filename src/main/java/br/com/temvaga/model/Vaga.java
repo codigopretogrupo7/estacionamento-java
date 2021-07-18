@@ -22,10 +22,12 @@ public class Vaga {
    private String dtEntrada;
 
    @ManyToOne
-   @JoinColumn(name = "fk_id_estacionamento")
+   @JoinColumn(name = "pk_id_estacionamento")
    private Estacionamento estacionamento;
 
    @OneToOne
+   @JoinColumn(name = "pk_id_veiculo")
    private Veiculo veiculo;
+
 
 }

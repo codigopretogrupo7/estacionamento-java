@@ -22,12 +22,15 @@ public class Gerenciamento {
 
 
     @OneToOne
+    @JoinColumn(name = "pk_id_estacionamento")
     private  Estacionamento estacionamento;
 
     @OneToOne
+    @JoinColumn(name = "pk_id_vaga")
     private  Vaga vaga;
 
     @OneToOne
+    @JoinColumn(name = "pk_id_veiculo")
     private  Veiculo veiculo;
 
 }

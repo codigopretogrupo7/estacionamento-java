@@ -17,17 +17,15 @@ public class Vaga {
    @GeneratedValue(strategy = GenerationType.IDENTITY)
    private Long id;
 
-   @Enumerated(EnumType.STRING)
+
    private Status situacao;
    private String dtEntrada;
 
-
    @ManyToOne
-   @JoinColumn(name = "idEstacionamento")
+   @JoinColumn(name = "fk_id_estacionamento")
    private Estacionamento estacionamento;
 
    @OneToOne
-   @JoinColumn(name = "id")
    private Veiculo veiculo;
 
 }

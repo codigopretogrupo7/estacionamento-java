@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 
 @Data
 @AllArgsConstructor
@@ -38,8 +39,8 @@ public class Estacionamento {
     private String hrAbertura;
     private String hrFechamento;
 
-    @Enumerated(value = EnumType.STRING)
-    private DiasSemana diasFuncionamento;
+
+    private ArrayList<DiasSemana> diasFuncionamento;
 
     private String emailEstacionamento;
     private String senhaEstacionamento;

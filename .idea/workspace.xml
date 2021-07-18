@@ -5,21 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="436cbcf2-6aed-4683-8cc4-82337b08712e" name="Default Changelist" comment="criação da entidades">
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/temvaga/controller/EstacionamentoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/temvaga/controller/EstacionamentoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/temvaga/controller/UsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/temvaga/controller/UsuarioController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/com/temvaga/model/Estacionamento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/temvaga/model/Estacionamento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/temvaga/model/Gerenciamento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/temvaga/model/Gerenciamento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/temvaga/model/Telefone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/temvaga/model/Telefone.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/com/temvaga/model/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/temvaga/model/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/temvaga/model/Vaga.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/temvaga/model/Vaga.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/temvaga/model/Veiculo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/temvaga/model/Veiculo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/model/Estacionamento.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/temvaga/model/Estacionamento.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/model/Gerenciamento.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/temvaga/model/Gerenciamento.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/model/Telefone.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/temvaga/model/Telefone.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/model/Usuario.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/temvaga/model/Usuario.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/model/Vaga.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/temvaga/model/Vaga.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/model/Veiculo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/temvaga/model/Veiculo.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

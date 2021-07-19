@@ -2,10 +2,13 @@ package br.com.temvaga.repository;
 
 import br.com.temvaga.model.Estacionamento;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
 
-public interface EstacionamentoRepository extends CrudRepository<Estacionamento, Long> {
+import java.util.List;
 
-    ArrayList<Estacionamento> findAll();
+@Repository
+public interface EstacionamentoRepository extends CrudRepository<Estacionamento, Integer> {
+
+    List<Estacionamento> findAll();
 }

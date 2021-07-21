@@ -44,12 +44,39 @@ public class Estacionamento {
     private String emailEstacionamento;
     private String senhaEstacionamento;
 
-    private Integer idUsuario;
     private  String imgURL;
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.PERSIST)
     @JoinColumn(name = "fk_id_usuario")
     private Usuario usuario;
+
+
+
+public Estacionamento(Integer id, String nomeEstacionamento, String descricao, byte[] foto, String CEP, String estado, String bairro, String logadouro, String numero, String lat, String lng, Integer numVagas, Double vlHora, Double vlDiaria, Double vlAdicional, String frame, String hrAbertura, String hrFechamento, ArrayList<DiasSemana> diasFuncionamento, String emailEstacionamento, String senhaEstacionamento, Integer idUsuario, String imgURL, Usuario usuario) {
+    this.id = id;
+    this.nomeEstacionamento = nomeEstacionamento;
+    this.descricao = descricao;
+    this.foto = foto;
+    this.CEP = CEP;
+    this.estado = estado;
+    this.bairro = bairro;
+    this.logadouro = logadouro;
+    this.numero = numero;
+    this.lat = lat;
+    this.lng = lng;
+    this.numVagas = numVagas;
+    this.vlHora = vlHora;
+    this.vlDiaria = vlDiaria;
+    this.vlAdicional = vlAdicional;
+    this.frame = frame;
+    this.hrAbertura = hrAbertura;
+    this.hrFechamento = hrFechamento;
+    this.diasFuncionamento = diasFuncionamento;
+    this.emailEstacionamento = emailEstacionamento;
+    this.senhaEstacionamento = senhaEstacionamento;
+    this.imgURL = imgURL;
+    this.usuario = usuario;
+}
 
 public Integer getId() {
     return id;
@@ -219,14 +246,6 @@ public void setSenhaEstacionamento(String senhaEstacionamento) {
     this.senhaEstacionamento = senhaEstacionamento;
 }
 
-public Integer getIdUsuario() {
-    return idUsuario;
-}
-
-public void setIdUsuario(Integer idUsuario) {
-    this.idUsuario = idUsuario;
-}
-
 public String getImgURL() {
     return imgURL;
 }
@@ -243,7 +262,7 @@ public void setUsuario(Usuario usuario) {
     this.usuario = usuario;
 }
 
-public Estacionamento(Integer id, String nomeEstacionamento, String descricao, byte[] foto, String CEP, String estado, String bairro, String logadouro, String numero, String lat, String lng, Integer numVagas, Double vlHora, Double vlDiaria, Double vlAdicional, String frame, String hrAbertura, String hrFechamento, ArrayList<DiasSemana> diasFuncionamento, String emailEstacionamento, String senhaEstacionamento, Integer idUsuario, String imgURL, Usuario usuario) {
+public Estacionamento(Integer id, String nomeEstacionamento, String descricao, byte[] foto, String CEP, String estado, String bairro, String logadouro, String numero, String lat, String lng, Integer numVagas, Double vlHora, Double vlDiaria, Double vlAdicional, String frame, String hrAbertura, String hrFechamento, ArrayList<DiasSemana> diasFuncionamento, String emailEstacionamento, String senhaEstacionamento, String imgURL, Usuario usuario) {
     this.id = id;
     this.nomeEstacionamento = nomeEstacionamento;
     this.descricao = descricao;
@@ -265,7 +284,6 @@ public Estacionamento(Integer id, String nomeEstacionamento, String descricao, b
     this.diasFuncionamento = diasFuncionamento;
     this.emailEstacionamento = emailEstacionamento;
     this.senhaEstacionamento = senhaEstacionamento;
-    this.idUsuario = idUsuario;
     this.imgURL = imgURL;
     this.usuario = usuario;
 }

@@ -5,11 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="436cbcf2-6aed-4683-8cc4-82337b08712e" name="Default Changelist" comment="criação da entidades">
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/temvaga/controller/TelefoneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/temvaga/controller/TelefoneController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/temvaga/model/Telefone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/temvaga/model/Telefone.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/temvaga/repository/TelefoneRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/temvaga/repository/TelefoneRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/temvaga/repository/VagaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/temvaga/repository/VagaRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/controller/TelefoneController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/temvaga/controller/TelefoneController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/temvaga/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/temvaga/controller/EstacionamentoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/temvaga/controller/EstacionamentoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/temvaga/model/Estacionamento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/temvaga/model/Estacionamento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/temvaga/service/TelefoneService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/temvaga/service/TelefoneService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/controller/EstacionamentoController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/controller/TelefoneController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/controller/UsuarioController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/controller/VagaController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/controller/VeiculoController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/enuns/DiasSemana.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/enuns/Status.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/model/Estacionamento.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/model/Gerenciamento.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/model/Telefone.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/model/Usuario.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/model/Vaga.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/model/Veiculo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/repository/EstacionamentoRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/repository/TelefoneRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/repository/UsuarioRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/repository/VagaRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/service/TelefoneService.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +55,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1v2ouK05xnjjuIb3AGpd1sileba" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -46,7 +69,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -55,11 +78,14 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Matheus\Desktop\projetoIntegrador\TemVaga\src\main\java" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="br.com.temvaga.model" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="br.com.temvaga.Main" />
       <module name="TemVaga" />
@@ -69,6 +95,13 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Teste" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Teste" />
+      <module name="TemVaga" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -89,6 +122,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Teste" />
       </list>
     </recent_temporary>
   </component>
@@ -110,6 +144,9 @@
     </task>
     <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.sql" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

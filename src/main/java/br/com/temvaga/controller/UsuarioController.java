@@ -3,6 +3,8 @@ package br.com.temvaga.controller;
 import br.com.temvaga.model.Usuario;
 import br.com.temvaga.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,9 +17,16 @@ public class UsuarioController {
     @Autowired
     UsuarioRepository repo;
 
+
+
     @RequestMapping("/list")
     public ArrayList<Usuario> findAll(){
         return repo.findAll();
+    }
+
+    @PostMapping("/add")
+    public void addUsuario(@RequestBody Usuario usuario){
+
     }
 
 }

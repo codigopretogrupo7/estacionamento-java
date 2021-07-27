@@ -8,4 +8,5 @@ import java.util.ArrayList;
 public interface UsuarioRepository extends CrudRepository<Usuario, Long> {
 
     ArrayList<Usuario> findAll();
+
 }

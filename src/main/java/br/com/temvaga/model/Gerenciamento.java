@@ -1,36 +1,34 @@
 package br.com.temvaga.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
 import java.util.Date;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
 @Table(name = "gerenciamento")
 public class Gerenciamento {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id_gerenciamento")
     private Integer id;
-    private Date hrSaida;
+
+    @Column(name = "hora_entrada")
     private  Date hrEntrada;
+    @Column(name = "hora_saida")
+    private Date hrSaida;
+    @Column(name = "valor_recebido")
     private  double VlRecebido;
 
 
     @OneToOne
-    @JoinColumn(name = "pk_id_estacionamento")
+    @JoinColumn(name = "fk_estacionamento")
     private  Estacionamento estacionamento;
 
     @OneToOne
-    @JoinColumn(name = "pk_id_vaga")
+    @JoinColumn(name = "fk_vaga")
     private  Vaga vaga;
 
     @OneToOne
-    @JoinColumn(name = "pk_id_veiculo")
+    @JoinColumn(name = "fk_veiculo")
     private  Veiculo veiculo;
 
 }

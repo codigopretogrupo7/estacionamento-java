@@ -1,11 +1,6 @@
 package br.com.temvaga.model;
 
-
-
 import br.com.temvaga.enuns.DiasSemana;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -17,276 +12,292 @@ import java.util.ArrayList;
 public class Estacionamento {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_estacionamento")
     private Integer id;
-    private String  nomeEstacionamento;
-    private String  descricao;
+    @Column(name = "nome_estacionamento")
+    private String nomeEstacionamento;
+    @Column(name = "descricao")
+    private String descricao;
+    @Column(name = "foto")
     private byte[] foto;
 
-    private String CEP;
+    @Column(name = "cep")
+    private String cep;
+    @Column(name = "estado")
     private String estado;
+    @Column(name = "cidade")
+    private String cidade;
+    @Column(name = "bairro")
     private String bairro;
+    @Column(name = "logradouro")
     private String logadouro;
+    @Column(name = "numero")
     private String numero;
+    @Column(name = "latitude")
     private String lat;
+    @Column(name = "longitude")
     private String lng;
 
+    @Column(name = "numero_vagas")
     private Integer numVagas;
+    @Column(name = "valor_hora")
     private Double vlHora;
-    private Double vlDiaria;
+    @Column(name = "demais_valor_hora")
     private Double vlAdicional;
+    @Column(name = "valor_diaria")
+    private Double vlDiaria;
+    @Column(name = "frame")
     private String frame; //?
+    @Column(name = "horario_abertura")
     private String hrAbertura;
+    @Column(name = "horario_fechamento")
     private String hrFechamento;
 
+    private int idUsuario;
 
+    @Column(name = "")
     private ArrayList<DiasSemana> diasFuncionamento;
 
+    @Column(name = "email_estacionamento")
     private String emailEstacionamento;
+    @Column(name = "senha_estacionamento")
     private String senhaEstacionamento;
-
-    private  String imgURL;
 
     @ManyToOne(cascade=CascadeType.PERSIST)
     @JoinColumn(name = "fk_id_usuario")
-    private Usuario usuario;
+    private Usuario usuario ;
 
 
 
-public Estacionamento(Integer id, String nomeEstacionamento, String descricao, byte[] foto, String CEP, String estado, String bairro, String logadouro, String numero, String lat, String lng, Integer numVagas, Double vlHora, Double vlDiaria, Double vlAdicional, String frame, String hrAbertura, String hrFechamento, ArrayList<DiasSemana> diasFuncionamento, String emailEstacionamento, String senhaEstacionamento, Integer idUsuario, String imgURL, Usuario usuario) {
+    public Estacionamento(Integer id, String nomeEstacionamento,
+                          String descricao, byte[] foto,
+                          String cep, String estado, String cidade,
+                          String bairro, String logadouro,
+                          String numero, String lat,
+                          String lng, Integer numVagas,
+                          Double vlHora, Double vlDiaria,
+                          Double vlAdicional, String frame,
+                          String hrAbertura, String hrFechamento,
+                          ArrayList<DiasSemana> diasFuncionamento,
+                          String emailEstacionamento, String senhaEstacionamento,
+                          Integer idUsuario, Usuario usuario) {
     this.id = id;
     this.nomeEstacionamento = nomeEstacionamento;
     this.descricao = descricao;
     this.foto = foto;
-    this.CEP = CEP;
+    this.cep = cep;
     this.estado = estado;
+    this.cidade = cidade;
     this.bairro = bairro;
     this.logadouro = logadouro;
     this.numero = numero;
     this.lat = lat;
     this.lng = lng;
     this.numVagas = numVagas;
+    this.diasFuncionamento = diasFuncionamento;
     this.vlHora = vlHora;
-    this.vlDiaria = vlDiaria;
     this.vlAdicional = vlAdicional;
-    this.frame = frame;
+    this.vlDiaria = vlDiaria;
     this.hrAbertura = hrAbertura;
     this.hrFechamento = hrFechamento;
-    this.diasFuncionamento = diasFuncionamento;
+    this.frame = frame;
     this.emailEstacionamento = emailEstacionamento;
     this.senhaEstacionamento = senhaEstacionamento;
-    this.imgURL = imgURL;
+    this.idUsuario = idUsuario;
     this.usuario = usuario;
 }
 
-public Integer getId() {
-    return id;
-}
 
-public void setId(Integer id) {
-    this.id = id;
-}
+    public String getCep() {
+        return cep;
+    }
 
-public String getNomeEstacionamento() {
-    return nomeEstacionamento;
-}
+    public void setCep(String cep) {
+        this.cep = cep;
+    }
 
-public void setNomeEstacionamento(String nomeEstacionamento) {
-    this.nomeEstacionamento = nomeEstacionamento;
-}
+    public String getCidade() {
+        return cidade;
+    }
 
-public String getDescricao() {
-    return descricao;
-}
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
 
-public void setDescricao(String descricao) {
-    this.descricao = descricao;
-}
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
+    }
 
-public byte[] getFoto() {
-    return foto;
-}
+    public int getIdUsuario() {return idUsuario;}
 
-public void setFoto(byte[] foto) {
-    this.foto = foto;
-}
+    public Integer getId() {
+        return id;
+    }
 
-public String getCEP() {
-    return CEP;
-}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-public void setCEP(String CEP) {
-    this.CEP = CEP;
-}
+    public String getNomeEstacionamento() {
+        return nomeEstacionamento;
+    }
 
-public String getEstado() {
-    return estado;
-}
+    public void setNomeEstacionamento(String nomeEstacionamento) {
+        this.nomeEstacionamento = nomeEstacionamento;
+    }
 
-public void setEstado(String estado) {
-    this.estado = estado;
-}
+    public String getDescricao() {
+        return descricao;
+    }
 
-public String getBairro() {
-    return bairro;
-}
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
 
-public void setBairro(String bairro) {
-    this.bairro = bairro;
-}
+    public byte[] getFoto() {
+        return foto;
+    }
 
-public String getLogadouro() {
-    return logadouro;
-}
+    public void setFoto(byte[] foto) {
+        this.foto = foto;
+    }
 
-public void setLogadouro(String logadouro) {
-    this.logadouro = logadouro;
-}
+    public String getEstado() {
+        return estado;
+    }
 
-public String getNumero() {
-    return numero;
-}
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
 
-public void setNumero(String numero) {
-    this.numero = numero;
-}
+    public String getBairro() {
+        return bairro;
+    }
 
-public String getLat() {
-    return lat;
-}
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
+    }
 
-public void setLat(String lat) {
-    this.lat = lat;
-}
+    public String getLogadouro() {
+        return logadouro;
+    }
 
-public String getLng() {
-    return lng;
-}
+    public void setLogadouro(String logadouro) {
+        this.logadouro = logadouro;
+    }
 
-public void setLng(String lng) {
-    this.lng = lng;
-}
+    public String getNumero() {
+        return numero;
+    }
 
-public Integer getNumVagas() {
-    return numVagas;
-}
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
 
-public void setNumVagas(Integer numVagas) {
-    this.numVagas = numVagas;
-}
+    public String getLat() {
+        return lat;
+    }
 
-public Double getVlHora() {
-    return vlHora;
-}
+    public void setLat(String lat) {
+        this.lat = lat;
+    }
 
-public void setVlHora(Double vlHora) {
-    this.vlHora = vlHora;
-}
+    public String getLng() {
+        return lng;
+    }
 
-public Double getVlDiaria() {
-    return vlDiaria;
-}
+    public void setLng(String lng) {
+        this.lng = lng;
+    }
 
-public void setVlDiaria(Double vlDiaria) {
-    this.vlDiaria = vlDiaria;
-}
+    public Integer getNumVagas() {
+        return numVagas;
+    }
 
-public Double getVlAdicional() {
-    return vlAdicional;
-}
+    public void setNumVagas(Integer numVagas) {
+        this.numVagas = numVagas;
+    }
 
-public void setVlAdicional(Double vlAdicional) {
-    this.vlAdicional = vlAdicional;
-}
+    public Double getVlHora() {
+        return vlHora;
+    }
 
-public String getFrame() {
-    return frame;
-}
+    public void setVlHora(Double vlHora) {
+        this.vlHora = vlHora;
+    }
 
-public void setFrame(String frame) {
-    this.frame = frame;
-}
+    public Double getVlDiaria() {
+        return vlDiaria;
+    }
 
-public String getHrAbertura() {
-    return hrAbertura;
-}
+    public void setVlDiaria(Double vlDiaria) {
+        this.vlDiaria = vlDiaria;
+    }
 
-public void setHrAbertura(String hrAbertura) {
-    this.hrAbertura = hrAbertura;
-}
+    public Double getVlAdicional() {
+        return vlAdicional;
+    }
 
-public String getHrFechamento() {
-    return hrFechamento;
-}
+    public void setVlAdicional(Double vlAdicional) {
+        this.vlAdicional = vlAdicional;
+    }
 
-public void setHrFechamento(String hrFechamento) {
-    this.hrFechamento = hrFechamento;
-}
+    public String getFrame() {
+        return frame;
+    }
 
-public ArrayList<DiasSemana> getDiasFuncionamento() {
-    return diasFuncionamento;
-}
+    public void setFrame(String frame) {
+        this.frame = frame;
+    }
 
-public void setDiasFuncionamento(ArrayList<DiasSemana> diasFuncionamento) {
-    this.diasFuncionamento = diasFuncionamento;
-}
+    public String getHrAbertura() {
+        return hrAbertura;
+    }
 
-public String getEmailEstacionamento() {
-    return emailEstacionamento;
-}
+    public void setHrAbertura(String hrAbertura) {
+        this.hrAbertura = hrAbertura;
+    }
 
-public void setEmailEstacionamento(String emailEstacionamento) {
-    this.emailEstacionamento = emailEstacionamento;
-}
+    public String getHrFechamento() {
+        return hrFechamento;
+    }
 
-public String getSenhaEstacionamento() {
-    return senhaEstacionamento;
-}
+    public void setHrFechamento(String hrFechamento) {
+        this.hrFechamento = hrFechamento;
+    }
 
-public void setSenhaEstacionamento(String senhaEstacionamento) {
-    this.senhaEstacionamento = senhaEstacionamento;
-}
+    public ArrayList<DiasSemana> getDiasFuncionamento() {
+        return diasFuncionamento;
+    }
 
-public String getImgURL() {
-    return imgURL;
-}
+    public void setDiasFuncionamento(ArrayList<DiasSemana> diasFuncionamento) {
+        this.diasFuncionamento = diasFuncionamento;
+    }
 
-public void setImgURL(String imgURL) {
-    this.imgURL = imgURL;
-}
+    public String getEmailEstacionamento() {
+        return emailEstacionamento;
+    }
 
-public Usuario getUsuario() {
-    return usuario;
-}
+    public void setEmailEstacionamento(String emailEstacionamento) {
+        this.emailEstacionamento = emailEstacionamento;
+    }
 
-public void setUsuario(Usuario usuario) {
-    this.usuario = usuario;
-}
+    public String getSenhaEstacionamento() {
+        return senhaEstacionamento;
+    }
 
-public Estacionamento(Integer id, String nomeEstacionamento, String descricao, byte[] foto, String CEP, String estado, String bairro, String logadouro, String numero, String lat, String lng, Integer numVagas, Double vlHora, Double vlDiaria, Double vlAdicional, String frame, String hrAbertura, String hrFechamento, ArrayList<DiasSemana> diasFuncionamento, String emailEstacionamento, String senhaEstacionamento, String imgURL, Usuario usuario) {
-    this.id = id;
-    this.nomeEstacionamento = nomeEstacionamento;
-    this.descricao = descricao;
-    this.foto = foto;
-    this.CEP = CEP;
-    this.estado = estado;
-    this.bairro = bairro;
-    this.logadouro = logadouro;
-    this.numero = numero;
-    this.lat = lat;
-    this.lng = lng;
-    this.numVagas = numVagas;
-    this.vlHora = vlHora;
-    this.vlDiaria = vlDiaria;
-    this.vlAdicional = vlAdicional;
-    this.frame = frame;
-    this.hrAbertura = hrAbertura;
-    this.hrFechamento = hrFechamento;
-    this.diasFuncionamento = diasFuncionamento;
-    this.emailEstacionamento = emailEstacionamento;
-    this.senhaEstacionamento = senhaEstacionamento;
-    this.imgURL = imgURL;
-    this.usuario = usuario;
-}
+    public void setSenhaEstacionamento(String senhaEstacionamento) {
+        this.senhaEstacionamento = senhaEstacionamento;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
 
 public Estacionamento() {
 }

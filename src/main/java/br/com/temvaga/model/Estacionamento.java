@@ -3,17 +3,13 @@ package br.com.temvaga.model;
 
 
 import br.com.temvaga.enuns.DiasSemana;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+
 
 import javax.persistence.*;
 import java.util.ArrayList;
 
-
-
-@Table(name = "estacionamento")
 @Entity
+@Table(name = "estacionamento")
 public class Estacionamento {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -46,35 +42,17 @@ public class Estacionamento {
 
     private  String imgURL;
 
-    @ManyToOne(cascade=CascadeType.PERSIST)
-    @JoinColumn(name = "fk_id_usuario")
+    @ManyToOne
+    @JoinColumn(name = "usuario_id")
     private Usuario usuario;
 
 
 
-public Estacionamento(Integer id, String nomeEstacionamento, String descricao, byte[] foto, String CEP, String estado, String bairro, String logadouro, String numero, String lat, String lng, Integer numVagas, Double vlHora, Double vlDiaria, Double vlAdicional, String frame, String hrAbertura, String hrFechamento, ArrayList<DiasSemana> diasFuncionamento, String emailEstacionamento, String senhaEstacionamento, Integer idUsuario, String imgURL, Usuario usuario) {
-    this.id = id;
-    this.nomeEstacionamento = nomeEstacionamento;
-    this.descricao = descricao;
-    this.foto = foto;
-    this.CEP = CEP;
-    this.estado = estado;
-    this.bairro = bairro;
-    this.logadouro = logadouro;
-    this.numero = numero;
-    this.lat = lat;
-    this.lng = lng;
-    this.numVagas = numVagas;
-    this.vlHora = vlHora;
-    this.vlDiaria = vlDiaria;
-    this.vlAdicional = vlAdicional;
-    this.frame = frame;
-    this.hrAbertura = hrAbertura;
-    this.hrFechamento = hrFechamento;
-    this.diasFuncionamento = diasFuncionamento;
-    this.emailEstacionamento = emailEstacionamento;
-    this.senhaEstacionamento = senhaEstacionamento;
-    this.imgURL = imgURL;
+public Usuario getUsuario() {
+    return usuario;
+}
+
+public void setUsuario(Usuario usuario) {
     this.usuario = usuario;
 }
 
@@ -254,13 +232,7 @@ public void setImgURL(String imgURL) {
     this.imgURL = imgURL;
 }
 
-public Usuario getUsuario() {
-    return usuario;
-}
 
-public void setUsuario(Usuario usuario) {
-    this.usuario = usuario;
-}
 
 public Estacionamento(Integer id, String nomeEstacionamento, String descricao, byte[] foto, String CEP, String estado, String bairro, String logadouro, String numero, String lat, String lng, Integer numVagas, Double vlHora, Double vlDiaria, Double vlAdicional, String frame, String hrAbertura, String hrFechamento, ArrayList<DiasSemana> diasFuncionamento, String emailEstacionamento, String senhaEstacionamento, String imgURL, Usuario usuario) {
     this.id = id;
@@ -285,7 +257,6 @@ public Estacionamento(Integer id, String nomeEstacionamento, String descricao, b
     this.emailEstacionamento = emailEstacionamento;
     this.senhaEstacionamento = senhaEstacionamento;
     this.imgURL = imgURL;
-    this.usuario = usuario;
 }
 
 public Estacionamento() {

@@ -5,16 +5,46 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="436cbcf2-6aed-4683-8cc4-82337b08712e" name="Default Changelist" comment="criação da entidades">
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/temvaga/controller/EstacionamentoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/temvaga/controller/EstacionamentoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/com/temvaga/controller/UsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/temvaga/controller/UsuarioController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/temvaga/repository/GerenciamentoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/temvaga/repository/GerenciamentoRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/temvaga/repository/UsuarioRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/temvaga/repository/UsuarioRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/temvaga/model/Estacionamento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/temvaga/model/Estacionamento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/temvaga/model/Gerenciamento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/temvaga/model/Gerenciamento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/temvaga/model/Telefone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/temvaga/model/Telefone.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/temvaga/model/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/temvaga/model/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/temvaga/model/Vaga.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/temvaga/model/Vaga.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/temvaga/model/Veiculo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/temvaga/model/Veiculo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/temvaga/service/VagaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/temvaga/service/VagaService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V1__createTable.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/migration/createTable.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/controller/UsuarioController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/temvaga/controller/UsuarioController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/repository/GerenciamentoService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/db/migration/V1__createTable.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/createTable.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V1.0.0__createTable.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/config/SecurityConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/controller/EstacionamentoController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/controller/TelefoneController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/controller/UsuarioController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/controller/VagaController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/controller/VeiculoController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/enuns/DiasSemana.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/enuns/Status.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/model/Estacionamento.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/model/Gerenciamento.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/model/Telefone.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/model/Usuario.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/model/Vaga.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/model/Veiculo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/repository/EstacionamentoRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/repository/GerenciamentoRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/repository/TelefoneRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/repository/UserRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/repository/UsuarioRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/repository/VagaRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/service/EstacionamentoService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/service/GerenciamentoService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/service/TelefoneService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/service/UsuarioService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/service/VagaService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/service/VeiculoService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/db/migration/createTable.sql" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +83,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -113,8 +143,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.Main (1)" />
         <item itemvalue="Application.Teste" />
+        <item itemvalue="Application.Main (1)" />
       </list>
     </recent_temporary>
   </component>

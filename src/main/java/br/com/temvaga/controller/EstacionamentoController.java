@@ -6,13 +6,12 @@ import br.com.temvaga.model.Telefone;
 import br.com.temvaga.repository.EstacionamentoRepository;
 import br.com.temvaga.service.EstacionamentoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Optional;
 
 
 @RestController
@@ -22,16 +21,29 @@ public class EstacionamentoController  {
     @Autowired
     EstacionamentoService estacionamentoService;
 
+    @Autowired
+    EstacionamentoRepository repo;
+
+
 
     @RequestMapping("/list")
-    public List<Estacionamento> findAll() {
-        return estacionamentoService.findAll();
+    public ArrayList<Estacionamento> findAll() {
+        return (ArrayList<Estacionamento>) repo.findAll();
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public void AddTelefone(@RequestBody Estacionamento estacionamento){
-    estacionamentoService.save(estacionamento);
+
+        repo.save(estacionamento);
 }
+
+    @DeleteMapping(path = "/{id}")
+    public ResponseEntity<Void> del(@PathVariable Integer id){
+        Optional<Estacionamento> estacinamentoDelete = repo.findById(id);
+    return  new ResponseEntity<>(HttpStatus.NO_CONTENT);
+}
+
+
 }
 
 

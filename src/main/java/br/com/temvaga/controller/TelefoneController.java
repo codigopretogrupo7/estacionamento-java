@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/telefone")
+@RequestMapping("/telefones")
 @AllArgsConstructor
 public class TelefoneController {
     @Autowired

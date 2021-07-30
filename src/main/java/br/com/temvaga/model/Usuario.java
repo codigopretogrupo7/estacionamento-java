@@ -29,9 +29,23 @@ private String sennha;
 @JsonIgnore
 private List<Estacionamento> estacionamentos;
 
+@OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario")
+@JsonIgnore
+private  List<Veiculo> veiculo;
 
 
 
+public void setEstacionamentos(List<Estacionamento> estacionamentos) {
+    this.estacionamentos = estacionamentos;
+}
+
+public List<Veiculo> getVeiculo() {
+    return veiculo;
+}
+
+public void setVeiculo(List<Veiculo> veiculo) {
+    this.veiculo = veiculo;
+}
 
 public Integer getId() {
     return id;

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 
 @RestController
-@RequestMapping("vagas")
+@RequestMapping("/vagas")
 public class VagaController {
 
     @Autowired

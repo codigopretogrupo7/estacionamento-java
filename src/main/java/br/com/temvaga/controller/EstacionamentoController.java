@@ -19,11 +19,7 @@ import java.util.Optional;
 public class EstacionamentoController  {
 
     @Autowired
-    EstacionamentoService estacionamentoService;
-
-    @Autowired
     EstacionamentoRepository repo;
-
 
 
     @RequestMapping("/list")
@@ -33,7 +29,6 @@ public class EstacionamentoController  {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public void AddTelefone(@RequestBody Estacionamento estacionamento){
-
         repo.save(estacionamento);
 }
 

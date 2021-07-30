@@ -4,7 +4,6 @@ import br.com.temvaga.model.Estacionamento;
 
 import br.com.temvaga.model.Telefone;
 import br.com.temvaga.repository.EstacionamentoRepository;
-import br.com.temvaga.service.EstacionamentoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,8 +26,13 @@ public class EstacionamentoController  {
         return (ArrayList<Estacionamento>) repo.findAll();
     }
 
+    @RequestMapping(value = "/list/id", method = RequestMethod.GET)
+    public Estacionamento listById(@RequestParam Integer id){
+    Optional<Estacionamento> estacionamento = repo.findById(id);
+    return estacionamento.get(); }
+
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public void AddTelefone(@RequestBody Estacionamento estacionamento){
+    public void Add(@RequestBody Estacionamento estacionamento){
         repo.save(estacionamento);
 }
 

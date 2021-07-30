@@ -6,22 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="436cbcf2-6aed-4683-8cc4-82337b08712e" name="Default Changelist" comment="criação da entidades">
       <change beforePath="$PROJECT_DIR$/src/main/java/br/com/temvaga/controller/EstacionamentoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/temvaga/controller/EstacionamentoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/temvaga/controller/TelefoneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/temvaga/controller/TelefoneController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/temvaga/controller/VagaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/temvaga/controller/VagaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/temvaga/controller/VeiculoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/temvaga/controller/VeiculoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/temvaga/model/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/temvaga/model/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/temvaga/service/EstacionamentoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/temvaga/service/EstacionamentoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V1.0.0__createTable.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/migration/createTable.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/controller/EstacionamentoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/temvaga/controller/EstacionamentoController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/controller/TelefoneController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/temvaga/controller/TelefoneController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/controller/VagaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/temvaga/controller/VagaController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/controller/VeiculoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/temvaga/controller/VeiculoController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/model/Gerenciamento.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/temvaga/model/Gerenciamento.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/model/Usuario.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/temvaga/model/Usuario.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/temvaga/service/EstacionamentoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/temvaga/service/EstacionamentoService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/db/migration/V1.0.0__createTable.sql" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

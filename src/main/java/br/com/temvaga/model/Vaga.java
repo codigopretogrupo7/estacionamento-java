@@ -11,11 +11,12 @@ import javax.persistence.*;
 public class Vaga {
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
-   private Long id;
+   private Integer id;
 
 
    private Status situacao;
    private String dtEntrada;
+   private String numeroVaga;
 
    @ManyToOne
    @JoinColumn(name = "pk_id_estacionamento")
@@ -26,7 +27,8 @@ public class Vaga {
    private Veiculo veiculo;
 
 
-public Vaga(Long id, Status situacao, String dtEntrada, Estacionamento estacionamento, Veiculo veiculo) {
+
+   public Vaga(Integer id, Status situacao, String dtEntrada, Estacionamento estacionamento, Veiculo veiculo) {
    this.id = id;
    this.situacao = situacao;
    this.dtEntrada = dtEntrada;
@@ -34,14 +36,23 @@ public Vaga(Long id, Status situacao, String dtEntrada, Estacionamento estaciona
    this.veiculo = veiculo;
 }
 
+
+   public String getNumeroVaga() {
+      return numeroVaga;
+   }
+
+   public void setNumeroVaga(String numeroVaga) {
+      this.numeroVaga = numeroVaga;
+   }
+
 public Vaga() {
 }
 
-public Long getId() {
+public int getId() {
    return id;
 }
 
-public void setId(Long id) {
+public void setId(Integer id) {
    this.id = id;
 }
 

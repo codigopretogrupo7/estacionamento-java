@@ -55,26 +55,52 @@ public class EstacionamentoController {
         ;
     }
 
-//    @DeleteMapping(path = "/{id}")
-//    public ResponseEntity<Void> del(@PathVariable Integer id){
-//        Optional<Estacionamento> estacinamentoDelete = repo.findById(id);
-//    return  new ResponseEntity<>(HttpStatus.NO_CONTENT);
-//    }
-
     @DeleteMapping(value = "/delete")
     public ResponseEntity<Estacionamento> deleteEstacionamento(@RequestParam(name = "id") Integer id) {
+
         Optional<Estacionamento> estacionamento = repo.findById(id);
-        Optional<Vaga> vaga = vagaRepository.findAllByEstacionamento(id);
+        Estacionamento estacionamentoCriado = estacionamento.get();
+        ArrayList<Vaga> vaga = vagaRepository.findAllByEstacionamento(estacionamentoCriado);
 
         if (estacionamento.isPresent()) {
-            repo.delete(estacionamento.get());
-            vagaRepository.delete(vaga.get());
+            for( int i = 0 ; i < vaga.toArray().length ; i++ ){
+                if(vaga.toArray().length > 0){
+                    vagaRepository.delete(vaga.get(i));
+                }
+            }
+            repo.delete(estacionamentoCriado);
+
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 
+    @RequestMapping("/listvaga")
+    public ArrayList<Vaga> listavagas() {
+
+        Optional<Estacionamento> estacionamento = repo.findById(3);
+        Estacionamento estacionamentoCriado = estacionamento.get();
+
+        ArrayList<Vaga> vagas = vagaRepository.findAllByEstacionamento(estacionamentoCriado);
+        System.out.println("AQUII-------------->"+vagas.toArray().length);
+        System.out.println("AQUII-------------->"+vagas.get(0));
+
+
+        return vagas ;
+    }
+
+
+//    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+//    @DeleteMapping(value = "/{id}")
+//    public void delete(@PathVariable Integer id) {
+//        Optional<Estacionamento> estacionamento = repo.findById(id);
+//        if (estacionamento.isPresent()) {
+//            repo.delete(estacionamento.get());
+//        } else {
+//            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+//        }
+//    }
 
 
 

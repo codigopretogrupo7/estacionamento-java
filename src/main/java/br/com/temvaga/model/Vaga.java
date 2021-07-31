@@ -48,7 +48,7 @@ public class Vaga {
 public Vaga() {
 }
 
-public int getId() {
+public Integer getId() {
    return id;
 }
 

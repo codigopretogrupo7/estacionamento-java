@@ -44,6 +44,6 @@ public class UsuarioController {
     public void AddUsuario(@RequestBody Usuario usuario){
         usuario.setSennha(bCryptPasswordEncoder.encode(usuario.getSennha()));
         repo.save(usuario);
-}
+    }
 
 }

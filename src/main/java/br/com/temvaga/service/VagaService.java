@@ -1,18 +1,31 @@
 package br.com.temvaga.service;
 
 import br.com.temvaga.model.Estacionamento;
-import br.com.temvaga.model.Usuario;
 import br.com.temvaga.model.Vaga;
 import br.com.temvaga.repository.EstacionamentoRepository;
-import br.com.temvaga.repository.UsuarioRepository;
 import br.com.temvaga.repository.VagaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Optional;
 
+@Service
 public class VagaService {
 
+    @Autowired
+    EstacionamentoRepository estacionamentoRepository;
+    @Autowired
+    VagaRepository vagaRepository;
+
+    public ArrayList<Vaga> listavagas(int numeroEstacionamento ) {
+
+        Optional<Estacionamento> estacionamento = estacionamentoRepository.findById(numeroEstacionamento);
+        Estacionamento estacionamentoCriado = estacionamento.get();
+
+        ArrayList<Vaga> vagas = vagaRepository.findAllByEstacionamento(estacionamentoCriado);
+
+        return vagas ;
+    }
 
 }

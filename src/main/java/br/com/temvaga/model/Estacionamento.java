@@ -1,11 +1,15 @@
 package br.com.temvaga.model;
 
-
-
 import br.com.temvaga.enuns.DiasSemana;
 
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.ManyToOne;
+import javax.persistence.JoinColumn;
 
-import javax.persistence.*;
 import java.util.ArrayList;
 
 @Entity
@@ -48,8 +52,8 @@ public class Estacionamento {
 
 
 
-public Usuario getUsuario() {
-    return usuario;
+public int getUsuario() {
+    return usuario.getId();
 }
 
 public void setUsuario(Usuario usuario) {

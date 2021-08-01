@@ -2,8 +2,14 @@ package br.com.temvaga.model;
 
 import br.com.temvaga.enuns.Status;
 
-
-import javax.persistence.*;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 
 @Entity
@@ -26,15 +32,13 @@ public class Vaga {
    @JoinColumn(name = "pk_id_veiculo")
    private Veiculo veiculo;
 
-
-
    public Vaga(Integer id, Status situacao, String dtEntrada, Estacionamento estacionamento, Veiculo veiculo) {
-   this.id = id;
-   this.situacao = situacao;
-   this.dtEntrada = dtEntrada;
-   this.estacionamento = estacionamento;
-   this.veiculo = veiculo;
-}
+      this.id = id;
+      this.situacao = situacao;
+      this.dtEntrada = dtEntrada;
+      this.estacionamento = estacionamento;
+      this.veiculo = veiculo;
+   }
 
 
    public String getNumeroVaga() {
@@ -45,48 +49,48 @@ public class Vaga {
       this.numeroVaga = numeroVaga;
    }
 
-public Vaga() {
-}
+   public Vaga() {
+   }
 
-public int getId() {
-   return id;
-}
+   public Integer getId() {
+      return id;
+   }
 
-public void setId(Integer id) {
-   this.id = id;
-}
+   public void setId(Integer id) {
+      this.id = id;
+   }
 
-public Status getSituacao() {
-   return situacao;
-}
+   public Status getSituacao() {
+      return situacao;
+   }
 
-public void setSituacao(Status situacao) {
-   this.situacao = situacao;
-}
+   public void setSituacao(Status situacao) {
+      this.situacao = situacao;
+   }
 
-public String getDtEntrada() {
-   return dtEntrada;
-}
+   public String getDtEntrada() {
+      return dtEntrada;
+   }
 
-public void setDtEntrada(String dtEntrada) {
-   this.dtEntrada = dtEntrada;
-}
+   public void setDtEntrada(String dtEntrada) {
+      this.dtEntrada = dtEntrada;
+   }
 
-public Estacionamento getEstacionamento() {
-   return estacionamento;
-}
+   public int getEstacionamento() {
+         return estacionamento.getId();
+   }
 
-public void setEstacionamento(Estacionamento estacionamento) {
-   this.estacionamento = estacionamento;
-}
+   public void setEstacionamento(Estacionamento estacionamento) {
+      this.estacionamento = estacionamento;
+   }
 
-public Veiculo getVeiculo() {
-   return veiculo;
-}
+   public Veiculo getVeiculo() {
+      return veiculo;
+   }
 
-public void setVeiculo(Veiculo veiculo) {
-   this.veiculo = veiculo;
-}
+   public void setVeiculo(Veiculo veiculo) {
+      this.veiculo = veiculo;
+   }
 
 
 }

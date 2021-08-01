@@ -6,7 +6,6 @@ import br.com.temvaga.repository.EstacionamentoRepository;
 import br.com.temvaga.repository.VagaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.Optional;
@@ -19,7 +18,7 @@ public class VagaService {
     @Autowired
     VagaRepository vagaRepository;
 
-    public ArrayList<Vaga> listavagas(@RequestParam int numeroEstacionamento ) {
+    public ArrayList<Vaga> listavagas(int numeroEstacionamento ) {
 
         Optional<Estacionamento> estacionamento = estacionamentoRepository.findById(numeroEstacionamento);
         Estacionamento estacionamentoCriado = estacionamento.get();

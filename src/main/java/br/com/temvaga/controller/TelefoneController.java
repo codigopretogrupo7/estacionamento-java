@@ -3,19 +3,24 @@ package br.com.temvaga.controller;
 import br.com.temvaga.model.Telefone;
 import br.com.temvaga.repository.TelefoneRepository;
 import br.com.temvaga.service.TelefoneService;
-import lombok.AllArgsConstructor;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
 
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.ArrayList;
 import java.util.Optional;
 
 @RestController
 @RequestMapping("/telefones")
-@AllArgsConstructor
 public class TelefoneController {
     @Autowired
     private  TelefoneRepository repo;

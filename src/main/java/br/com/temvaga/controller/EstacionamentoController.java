@@ -19,31 +19,31 @@ import java.util.Optional;
 public class EstacionamentoController {
 
     @Autowired
-    EstacionamentoRepository repo;
+    EstacionamentoRepository estacionamentoRepository;
     @Autowired
     VagaRepository vagaRepository;
 
 
     @RequestMapping("/list")
     public ArrayList<Estacionamento> findAll() {
-        return (ArrayList<Estacionamento>) repo.findAll();
+        return (ArrayList<Estacionamento>) estacionamentoRepository.findAll();
     }
 
     @RequestMapping(value = "/list/id", method = RequestMethod.GET)
     public Estacionamento listById(@RequestParam Integer id) {
-        Optional<Estacionamento> estacionamento = repo.findById(id);
+        Optional<Estacionamento> estacionamento = estacionamentoRepository.findById(id);
         return estacionamento.get();
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public void AddEstacionamento(@RequestBody Estacionamento estacionamento) {
 
-        repo.save(estacionamento);
+        estacionamentoRepository.save(estacionamento);
 
         int numeroDeVagas = estacionamento.getNumVagas();
         int idEstacionamento = estacionamento.getId();
 
-        Optional<Estacionamento> estacionamentoProcurado = repo.findById(idEstacionamento);
+        Optional<Estacionamento> estacionamentoProcurado = estacionamentoRepository.findById(idEstacionamento);
         Estacionamento estacionamentoCriado = estacionamentoProcurado.get();
 
         for (int i = 1; i <= numeroDeVagas; i++) {
@@ -58,7 +58,7 @@ public class EstacionamentoController {
     @DeleteMapping(value = "/delete")
     public ResponseEntity<Estacionamento> deleteEstacionamento(@RequestParam(name = "id") Integer id) {
 
-        Optional<Estacionamento> estacionamento = repo.findById(id);
+        Optional<Estacionamento> estacionamento = estacionamentoRepository.findById(id);
         Estacionamento estacionamentoCriado = estacionamento.get();
         ArrayList<Vaga> vaga = vagaRepository.findAllByEstacionamento(estacionamentoCriado);
 
@@ -68,43 +68,13 @@ public class EstacionamentoController {
                     vagaRepository.delete(vaga.get(i));
                 }
             }
-            repo.delete(estacionamentoCriado);
+            estacionamentoRepository.delete(estacionamentoCriado);
 
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-
-    @RequestMapping("/listvaga")
-    public ArrayList<Vaga> listavagas() {
-
-        Optional<Estacionamento> estacionamento = repo.findById(3);
-        Estacionamento estacionamentoCriado = estacionamento.get();
-
-        ArrayList<Vaga> vagas = vagaRepository.findAllByEstacionamento(estacionamentoCriado);
-        System.out.println("AQUII-------------->"+vagas.toArray().length);
-        System.out.println("AQUII-------------->"+vagas.get(0));
-
-
-        return vagas ;
-    }
-
-
-//    @ResponseStatus(code = HttpStatus.NO_CONTENT)
-//    @DeleteMapping(value = "/{id}")
-//    public void delete(@PathVariable Integer id) {
-//        Optional<Estacionamento> estacionamento = repo.findById(id);
-//        if (estacionamento.isPresent()) {
-//            repo.delete(estacionamento.get());
-//        } else {
-//            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-//        }
-//    }
-
-
-
-
 }
 
 

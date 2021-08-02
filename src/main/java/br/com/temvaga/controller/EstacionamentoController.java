@@ -2,24 +2,21 @@ package br.com.temvaga.controller;
 
 import br.com.temvaga.model.Estacionamento;
 
-import br.com.temvaga.model.Vaga;
-import br.com.temvaga.repository.EstacionamentoRepository;
-import br.com.temvaga.repository.VagaRepository;
-
+import br.com.temvaga.service.EstacionamentoService;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.ArrayList;
-import java.util.Optional;
 
 
 @RestController
@@ -27,61 +24,32 @@ import java.util.Optional;
 public class EstacionamentoController {
 
     @Autowired
-    EstacionamentoRepository estacionamentoRepository;
-    @Autowired
-    VagaRepository vagaRepository;
+    private EstacionamentoService estacionamentoService;
 
-
-    @RequestMapping("/list")
-    public ArrayList<Estacionamento> findAll() {
-        return (ArrayList<Estacionamento>) estacionamentoRepository.findAll();
+    @GetMapping("/list")
+    public ResponseEntity<ArrayList<Estacionamento>> listTodosEstacionamentos() {
+        return estacionamentoService.ListaTodosEstacionamentos();
     }
 
-    @RequestMapping(value = "/list/id", method = RequestMethod.GET)
-    public Estacionamento listById(@RequestParam Integer id) {
-        Optional<Estacionamento> estacionamento = estacionamentoRepository.findById(id);
-        return estacionamento.get();
+    @GetMapping(value = "/list/id")
+    public ResponseEntity<Estacionamento> listEstacionamentoPorId(@RequestParam(name = "id") Integer id) {
+        return estacionamentoService.ListaEstacionamentoPorId(id);
     }
 
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public void AddEstacionamento(@RequestBody Estacionamento estacionamento) {
+    @PostMapping(value = "/add")
+    public ResponseEntity<Estacionamento> addEstacionamento(@RequestBody Estacionamento estacionamento) {
+        return estacionamentoService.AdicionaEstacionamento(estacionamento);
+    }
 
-        estacionamentoRepository.save(estacionamento);
-
-        int numeroDeVagas = estacionamento.getNumVagas();
-        int idEstacionamento = estacionamento.getId();
-
-        Optional<Estacionamento> estacionamentoProcurado = estacionamentoRepository.findById(idEstacionamento);
-        Estacionamento estacionamentoCriado = estacionamentoProcurado.get();
-
-        for (int i = 1; i <= numeroDeVagas; i++) {
-            Vaga vaga = new Vaga();
-            vaga.setEstacionamento(estacionamentoCriado);
-            vaga.setNumeroVaga(Integer.toString(i));
-            vagaRepository.save(vaga);
-        }
-        ;
+    @PutMapping(value = "/update")
+    public ResponseEntity<Estacionamento> updateEstacionamento(
+            @RequestParam(name = "id") Integer id, @RequestBody Estacionamento estacionamento){
+        return estacionamentoService.AtualizarEstacionamento(id,estacionamento);
     }
 
     @DeleteMapping(value = "/delete")
     public ResponseEntity<Estacionamento> deleteEstacionamento(@RequestParam(name = "id") Integer id) {
-
-        Optional<Estacionamento> estacionamento = estacionamentoRepository.findById(id);
-        Estacionamento estacionamentoCriado = estacionamento.get();
-        ArrayList<Vaga> vaga = vagaRepository.findAllByEstacionamento(estacionamentoCriado);
-
-        if (estacionamento.isPresent()) {
-            for( int i = 0 ; i < vaga.toArray().length ; i++ ){
-                if(vaga.toArray().length > 0){
-                    vagaRepository.delete(vaga.get(i));
-                }
-            }
-            estacionamentoRepository.delete(estacionamentoCriado);
-
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+        return estacionamentoService.DeletarEstacionamento(id);
     }
 }
 

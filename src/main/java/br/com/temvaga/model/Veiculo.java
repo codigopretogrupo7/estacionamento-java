@@ -21,7 +21,7 @@ public class Veiculo {
 
 
     @ManyToOne
-    @JoinColumn(name = "fk_id_usuario")
+    @JoinColumn(name = "fk_usuario")
     private Usuario usuario;
 
     public Integer getId() {

@@ -14,9 +14,9 @@ public class Estacionamento {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_estacionamento")
+    @Column(name = "id")
     private Integer id;
-    @Column(name = "nome_estacionamento")
+    @Column(name = "nome")
     private String  nomeEstacionamento;
     @Column(name = "descricao")
     private String  descricao;
@@ -57,13 +57,13 @@ public class Estacionamento {
     @Column(name="telefone")
     private String telefone;
 
-    @Column(name = "email_estacionamento")
+    @Column(name = "email")
     private String emailEstacionamento;
-    @Column(name = "senha_estacionamento")
+    @Column(name = "senha")
     private String senhaEstacionamento;
 
     @ManyToOne
-    @JoinColumn(name = "fk_id_usuario")
+    @JoinColumn(name = "fk_usuario")
     private Usuario usuario;
 
     //gets

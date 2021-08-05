@@ -38,7 +38,7 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
             return authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(user.getNome(),
-                            user.getSennha())
+                            user.getSenha())
             );
         } catch (IOException e) {
             throw new RuntimeException(e);

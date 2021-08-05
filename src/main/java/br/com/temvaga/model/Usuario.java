@@ -18,18 +18,18 @@ public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_usuario")
+    @Column(name = "id")
     private Integer id;
-    @Column(name = "nome_usuario")
+    @Column(name = "nome")
     private String nome;
-    @Column(name = "sobrenome_usuario")
-    private String sobreNome;
+    @Column(name = "sobrenome")
+    private String sobrenome;
     @Column(name = "cnh")
     private String CNH;
-    @Column(name = "email_usuario")
+    @Column(name = "email")
     private String email;
-    @Column(name = "senha_usuario")
-    private String sennha;
+    @Column(name = "senha")
+    private String senha;
     @Column(name="telefone")
     private String telefone;
 
@@ -47,8 +47,8 @@ public class Usuario {
     public String getNome() {
         return nome;
     }
-    public String getSobreNome() {
-        return sobreNome;
+    public String getSobrenome() {
+        return sobrenome;
     }
     public String getCNH() {
         return CNH;
@@ -56,8 +56,8 @@ public class Usuario {
     public String getEmail() {
         return email;
     }
-    public String getSennha() {
-        return sennha;
+    public String getSenha() {
+        return senha;
     }
     public String getTelefone() {return telefone;}
 
@@ -87,7 +87,7 @@ public class Usuario {
         this.nome = nome;
     }
     public void setSobreNome(String sobreNome) {
-        this.sobreNome = sobreNome;
+        this.sobrenome = sobreNome;
     }
     public void setCNH(String CNH) {
         this.CNH = CNH;
@@ -95,8 +95,8 @@ public class Usuario {
     public void setEmail(String email) {
         this.email = email;
     }
-    public void setSennha(String sennha) {
-        this.sennha = sennha;
+    public void setSenha(String sennha) {
+        this.senha = sennha;
     }
 
     public void setEstacionamentos(List<Estacionamento> estacionamentos) {
@@ -121,10 +121,10 @@ public class Usuario {
 
         this.id = id;
         this.nome = nome;
-        this.sobreNome = sobreNome;
+        this.sobrenome = sobreNome;
         this.CNH = CNH;
         this.email = email;
-        this.sennha = sennha;
+        this.senha = sennha;
         this.estacionamentos = estacionamentos;
         this.telefone = telefone;
     }

@@ -10,12 +10,13 @@ import javax.persistence.*;
 public class Vaga {
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
-   @Column(name="id_vaga")
+   @Column(name="id")
    private Integer id;
 
-
    private Status situacao;
+   @Column(name="hora_entrada")
    private String dtEntrada;
+   @Column(name="num_vaga")
    private String numeroVaga;
 
    @ManyToOne

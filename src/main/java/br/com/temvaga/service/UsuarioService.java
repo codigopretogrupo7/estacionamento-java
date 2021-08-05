@@ -45,7 +45,7 @@ public class UsuarioService {
     }
 
     public ResponseEntity<Usuario> AdicionaUsuario(Usuario usuario) {
-        usuario.setSennha(bCryptPasswordEncoder.encode(usuario.getSennha()));
+        usuario.setSenha(bCryptPasswordEncoder.encode(usuario.getSenha()));
         usuarioRepository.save(usuario);
         return new ResponseEntity<Usuario>(usuario,HttpStatus.CREATED);
     }
@@ -56,7 +56,7 @@ public class UsuarioService {
             Usuario usuarioEditado = usuarioVelho.get();
 
             usuarioEditado.setTelefone(usuario.getTelefone());
-            usuarioEditado.setSennha(bCryptPasswordEncoder.encode(usuario.getSennha()));
+            usuarioEditado.setSenha(bCryptPasswordEncoder.encode(usuario.getSenha()));
             usuarioRepository.save(usuarioEditado);
             return new ResponseEntity<Usuario>(usuarioEditado,HttpStatus.OK);
         }else {

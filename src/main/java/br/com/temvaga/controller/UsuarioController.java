@@ -1,54 +1,47 @@
 package br.com.temvaga.controller;
 
-import br.com.temvaga.model.Telefone;
+import br.com.temvaga.model.Estacionamento;
 import br.com.temvaga.model.Usuario;
-import br.com.temvaga.repository.UsuarioRepository;
 
-import org.springframework.security.crypto.password.PasswordEncoder;
+import br.com.temvaga.service.EstacionamentoService;
+import br.com.temvaga.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/usuarios")
 public class UsuarioController {
 
     @Autowired
-    UsuarioRepository repo;
+    UsuarioService usuarioService;
 
-    @Autowired
-    PasswordEncoder bCryptPasswordEncoder;
-
-    @RequestMapping("/usuario")
+    @GetMapping(value = "/list/id")
     public ResponseEntity<Usuario> UsuariobyId (@RequestParam(name = "id") Integer id){
-        Optional<Usuario> usuario = repo.findById(id);
-        if(usuario.isPresent()){
-            return new ResponseEntity<>(usuario.get(), HttpStatus.OK);
-        }else{
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+        return usuarioService.usuarioById(id);
     }
 
-
-
-    @RequestMapping("/list")
-    public ArrayList<Usuario> findAll(){
-        return repo.findAll();
+    @GetMapping(value = "/list")
+    public ResponseEntity<ArrayList<Usuario>> findAll(){
+        return usuarioService.listaTodosUsuarios();
     }
 
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public void AddUsuario(@RequestBody Usuario usuario){
-        usuario.setSennha(bCryptPasswordEncoder.encode(usuario.getSennha()));
-        repo.save(usuario);
+    @PostMapping(value = "/add")
+    public ResponseEntity<Usuario> AddUsuario(@RequestBody Usuario usuario){
+        return usuarioService.AdicionaUsuario(usuario);
+    }
+
+    @PutMapping(value = "/update")
+    public ResponseEntity<Usuario> updateUsuario(@RequestParam(name="id") Integer id, @RequestBody Usuario usuario){
+        return usuarioService.AtualizarUsuario(id,usuario);
+    }
+
+    @DeleteMapping(value = "/delete")
+    public ResponseEntity<Usuario> deleteUsuario(@RequestParam(name = "id") Integer id){
+        return usuarioService.deletarUsuario(id);
     }
 
 }

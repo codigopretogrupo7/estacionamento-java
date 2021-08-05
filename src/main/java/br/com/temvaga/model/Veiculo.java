@@ -18,59 +18,66 @@ public class Veiculo {
     private String cor;
     private String modelo;
     private String placa;
-
+    private String usuarioTemporario;
 
     @ManyToOne
-    @JoinColumn(name = "fk_id_usuario")
+    @JoinColumn(name = "fk_usuario")
     private Usuario usuario;
 
     public Integer getId() {
         return id;
     }
+    public String getCor() {
+        return cor;
+    }
+    public String getModelo() {return modelo;}
+    public String getPlaca() {
+        return placa;
+    }
+    public String getUsuario() {return usuario.getNome();}
+    public String getUsuarioTemporario() {return usuarioTemporario;}
 
     public void setId(Integer id) {
         this.id = id;
     }
-
-    public String getCor() {
-        return cor;
-    }
-
     public void setCor(String cor) {
         this.cor = cor;
     }
-
-    public String getModelo() {
-        return modelo;
-    }
-
     public void setModelo(String modelo) {
         this.modelo = modelo;
     }
-
-    public String getPlaca() {
-        return placa;
-    }
-
     public void setPlaca(String placa) {
         this.placa = placa;
     }
-
-    public int getUsuario() {
-        return usuario.getId();
-    }
-
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
+    public void setUsuarioTemporario(String usuarioTemporario) {this.usuarioTemporario = usuarioTemporario;}
 
-    public Veiculo(Integer id, String cor, String modelo, String placa, Usuario usuario) {
+    public Veiculo(Integer id,
+                   String cor,
+                   String modelo,
+                   String placa,
+                   Usuario usuario) {
         this.id = id;
         this.cor = cor;
         this.modelo = modelo;
         this.placa = placa;
         this.usuario = usuario;
     }
+
+    public Veiculo(Integer id,
+                   String cor,
+                   String modelo,
+                   String placa,
+                   String usuarioTemporario) {
+        this.id = id;
+        this.cor = cor;
+        this.modelo = modelo;
+        this.placa = placa;
+        this.usuarioTemporario = usuarioTemporario ;
+    }
+
 
     public Veiculo() {
     }

@@ -3,19 +3,17 @@ package br.com.temvaga.controller;
 import br.com.temvaga.model.Estacionamento;
 
 import br.com.temvaga.service.EstacionamentoService;
+import com.fasterxml.jackson.annotation.JsonFilter;
+import com.fasterxml.jackson.annotation.JsonKey;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.http.ResponseEntity;
 
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.context.annotation.RequestScope;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 
@@ -26,7 +24,7 @@ public class EstacionamentoController {
     @Autowired
     private EstacionamentoService estacionamentoService;
 
-    @GetMapping("/list")
+    @GetMapping(value = "/list")
     public ResponseEntity<ArrayList<Estacionamento>> listTodosEstacionamentos() {
         return estacionamentoService.ListaTodosEstacionamentos();
     }
@@ -35,9 +33,10 @@ public class EstacionamentoController {
     public ResponseEntity<Estacionamento> listEstacionamentoPorId(@RequestParam(name = "id") Integer id) {
         return estacionamentoService.ListaEstacionamentoPorId(id);
     }
-
+//,
+//                                                            @RequestParam("File") MultipartFile arquivo) throws IOException
     @PostMapping(value = "/add")
-    public ResponseEntity<Estacionamento> addEstacionamento(@RequestBody Estacionamento estacionamento) {
+    public ResponseEntity<Estacionamento> addEstacionamento(@RequestBody Estacionamento estacionamento ) throws IOException {
         return estacionamentoService.AdicionaEstacionamento(estacionamento);
     }
 

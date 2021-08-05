@@ -1,17 +1,12 @@
 package br.com.temvaga.model;
 
 import br.com.temvaga.enuns.DiasSemana;
+import org.junit.Ignore;
 
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.ManyToOne;
-import javax.persistence.JoinColumn;
-import javax.persistence.Column;
+import javax.persistence.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "estacionamento")
@@ -19,14 +14,14 @@ public class Estacionamento {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_estacionamento")
+    @Column(name = "id")
     private Integer id;
-    @Column(name = "nome_estacionamento")
+    @Column(name = "nome")
     private String  nomeEstacionamento;
     @Column(name = "descricao")
     private String  descricao;
     @Column(name = "foto")
-    private byte[] foto;
+    private String foto;
 
     @Column(name = "cep")
     private String CEP;
@@ -59,16 +54,16 @@ public class Estacionamento {
     private String hrAbertura;
     @Column(name = "horario_fechamento")
     private String hrFechamento;
+    @Column(name="telefone")
+    private String telefone;
 
-    private ArrayList<DiasSemana> diasFuncionamento;
-
-    @Column(name = "email_estacionamento")
+    @Column(name = "email")
     private String emailEstacionamento;
-    @Column(name = "senha_estacionamento")
+    @Column(name = "senha")
     private String senhaEstacionamento;
 
     @ManyToOne
-    @JoinColumn(name = "fk_id_usuario")
+    @JoinColumn(name = "fk_usuario")
     private Usuario usuario;
 
     //gets
@@ -84,7 +79,7 @@ public class Estacionamento {
     public String getDescricao() {
         return descricao;
     }
-    public byte[] getFoto() {
+    public String getFoto() {
         return foto;
     }
     public String getCEP() {
@@ -128,15 +123,14 @@ public class Estacionamento {
     public String getHrFechamento() {
         return hrFechamento;
     }
-    public ArrayList<DiasSemana> getDiasFuncionamento() {
-        return diasFuncionamento;
-    }
     public String getEmailEstacionamento() {
         return emailEstacionamento;
     }
     public String getSenhaEstacionamento() {
         return senhaEstacionamento;
     }
+    public String getTelefone() {return telefone;}
+
 
     //sets
     public void setUsuario(Usuario usuario) {
@@ -151,7 +145,7 @@ public class Estacionamento {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
-    public void setFoto(byte[] foto) {
+    public void setFoto(String foto) {
         this.foto = foto;
     }
     public void setCEP(String CEP) {
@@ -197,22 +191,22 @@ public class Estacionamento {
     public void setHrFechamento(String hrFechamento) {
         this.hrFechamento = hrFechamento;
     }
-    public void setDiasFuncionamento(ArrayList<DiasSemana> diasFuncionamento) {
-        this.diasFuncionamento = diasFuncionamento;
-    }
+
     public void setEmailEstacionamento(String emailEstacionamento) {
         this.emailEstacionamento = emailEstacionamento;
     }
     public void setSenhaEstacionamento(String senhaEstacionamento) {
         this.senhaEstacionamento = senhaEstacionamento;
     }
+    public void setTelefone(String telefone) {this.telefone = telefone;}
+
 
     //constructors
     public Estacionamento(
             Integer id,
             String nomeEstacionamento,
             String descricao,
-            byte[] foto,
+            String foto,
             String CEP,
             String estado,
             String bairro,
@@ -227,10 +221,8 @@ public class Estacionamento {
             String frame,
             String hrAbertura,
             String hrFechamento,
-            ArrayList<DiasSemana> diasFuncionamento,
             String emailEstacionamento,
             String senhaEstacionamento,
-            String imgURL,
             Usuario usuario) {
         this.id = id;
         this.nomeEstacionamento = nomeEstacionamento;
@@ -250,9 +242,9 @@ public class Estacionamento {
         this.frame = frame;
         this.hrAbertura = hrAbertura;
         this.hrFechamento = hrFechamento;
-        this.diasFuncionamento = diasFuncionamento;
         this.emailEstacionamento = emailEstacionamento;
         this.senhaEstacionamento = senhaEstacionamento;
+
     }
 
     public Estacionamento(){}

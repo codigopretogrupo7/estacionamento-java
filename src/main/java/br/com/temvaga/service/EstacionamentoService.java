@@ -1,6 +1,7 @@
 package br.com.temvaga.service;
 
 import br.com.temvaga.model.Estacionamento;
+import br.com.temvaga.model.Usuario;
 import br.com.temvaga.model.Vaga;
 import br.com.temvaga.repository.EstacionamentoRepository;
 import br.com.temvaga.repository.UsuarioRepository;
@@ -11,11 +12,15 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Optional;
 
 @Service
 public class EstacionamentoService {
+
+    private static String caminhoImagens = "/home/lucas/IdeaProjects/estacionamento-java/src/main/";
+
 
     @Autowired
     private EstacionamentoRepository estacionamentoRepository;
@@ -23,6 +28,7 @@ public class EstacionamentoService {
     private VagaRepository vagaRepository;
     @Autowired
     private UsuarioRepository usuarioRepository;
+
 
     public ResponseEntity<ArrayList<Estacionamento>> ListaTodosEstacionamentos(){
         ArrayList<Estacionamento> estacionamentos = (ArrayList<Estacionamento>) estacionamentoRepository.findAll();
@@ -41,8 +47,26 @@ public class EstacionamentoService {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+//, MultipartFile arquivo) throws IOException
+    public ResponseEntity<Estacionamento> AdicionaEstacionamento(Estacionamento estacionamento) throws IOException {
 
-    public ResponseEntity<Estacionamento> AdicionaEstacionamento(Estacionamento estacionamento){
+//        if(!arquivo.isEmpty()){
+//         byte[] bytes = arquivo.getBytes();
+//         Path caminho = Paths.get(caminhoImagens+String.valueOf(estacionamento.getId())+arquivo.getOriginalFilename());
+//         Files.write(caminho, bytes);
+//         estacionamento.setFoto(String.valueOf(estacionamento.getId())+arquivo.getOriginalFilename());
+//        }
+
+
+
+//        byte[] arquivo = Base64.getDecoder().decode(estacionamento.getFoto());
+//System.out.println()
+//
+//        File ars = new File(caminhoImagens);
+//
+//        System.out.println(ars);
+
+
         estacionamentoRepository.save(estacionamento);
 
         int numeroDeVagas = estacionamento.getNumVagas();
@@ -57,6 +81,8 @@ public class EstacionamentoService {
             vaga.setNumeroVaga(Integer.toString(i));
             vagaRepository.save(vaga);
         }
+
+
 
         return new ResponseEntity<Estacionamento>(estacionamento,HttpStatus.CREATED);
     }
@@ -108,10 +134,10 @@ public class EstacionamentoService {
             velhoEstacionamentoEditado.setFrame(estacionamento.getFrame());
             velhoEstacionamentoEditado.setHrAbertura(estacionamento.getHrAbertura());
             velhoEstacionamentoEditado.setHrFechamento(estacionamento.getHrFechamento());
-            velhoEstacionamentoEditado.setDiasFuncionamento(estacionamento.getDiasFuncionamento());
             velhoEstacionamentoEditado.setEmailEstacionamento(estacionamento.getEmailEstacionamento());
             velhoEstacionamentoEditado.setSenhaEstacionamento(estacionamento.getSenhaEstacionamento());
             velhoEstacionamentoEditado.setCEP(estacionamento.getCEP());
+            velhoEstacionamentoEditado.setTelefone(estacionamento.getTelefone());
 
             estacionamentoRepository.save(velhoEstacionamentoEditado);
             return new ResponseEntity<Estacionamento>(velhoEstacionamentoEditado, HttpStatus.OK);
@@ -119,6 +145,10 @@ public class EstacionamentoService {
         }else{
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
+    }
+
+    public ArrayList<Estacionamento>  EstacionamentoPorUsuario(Usuario usuario){
+        return estacionamentoRepository.findAllByUsuario(usuario);
     }
 
 

@@ -34,4 +34,13 @@ public class VagaController {
                                             @RequestParam(name="situacao") String situacao){
         return vagaService.InsereCarroNaVaga( id,veiculo, situacao );
     }
+
+    @PostMapping(value="/checkout")
+    public ResponseEntity<Vaga> checkout(@RequestParam(name="id") Integer id){
+        return vagaService.Checkout(id);
+    }
+
+
+
+
 }

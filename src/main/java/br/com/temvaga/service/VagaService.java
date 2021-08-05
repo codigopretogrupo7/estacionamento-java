@@ -21,7 +21,6 @@ import br.com.temvaga.enuns.Status;
 public class VagaService {
 
     Calendar calendario = Calendar.getInstance();
-    Status status;
 
     @Autowired
     EstacionamentoRepository estacionamentoRepository;

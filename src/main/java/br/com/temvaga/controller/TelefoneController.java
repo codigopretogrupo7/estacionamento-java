@@ -22,8 +22,11 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/telefones")
 public class TelefoneController {
+
     @Autowired
     private  TelefoneRepository repo;
+
+    @Autowired
     private final TelefoneService repoService;
 
     public TelefoneController(TelefoneService repoService) {

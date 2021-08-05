@@ -31,11 +31,16 @@ public class Usuario {
     @Column(name = "senha_usuario")
     private String sennha;
 
+    private String telefone;
+
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario")
     private List<Estacionamento> estacionamentos;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario")
     private  List<Veiculo> veiculo;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario")
+    private List<Telefone> telefones;
 
     // GETS
 
@@ -57,11 +62,18 @@ public class Usuario {
     public String getSennha() {
         return sennha;
     }
+    public String getTelefone() {return telefone;}
+    public List<Integer> getTelefones() {
+        List<Integer> idsTelefones = new ArrayList<>();
+        for( int i = 0 ; i < telefones.toArray().length ; i++ ){
+            idsTelefones.add(telefones.get(i).getId());
+        }
+
+        return idsTelefones;
+    }
 
     public List<Integer> getEstacionamentos() {
-
         List<Integer> idsEstacionamentos = new ArrayList<Integer>();
-
         for( int i = 0 ; i < estacionamentos.toArray().length ; i++ ){
             idsEstacionamentos.add(estacionamentos.get(i).getId());
         }
@@ -70,7 +82,6 @@ public class Usuario {
     }
     public List<Integer> getVeiculo() {
         List<Integer> idsVeiculos = new ArrayList<Integer>();
-
         for( int i = 0 ; i < veiculo.toArray().length ; i++ ){
             idsVeiculos.add(veiculo.get(i).getId());
         }
@@ -105,6 +116,8 @@ public class Usuario {
     public void setVeiculo(List<Veiculo> veiculo) {
         this.veiculo = veiculo;
     }
+    public void setTelefones(List<Telefone> telefones) {this.telefones = telefones;}
+    public void setTelefone(String telefone) {this.telefone = telefone;}
 
     // CONSTRUCTORS
 

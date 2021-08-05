@@ -1,17 +1,12 @@
 package br.com.temvaga.model;
 
 import br.com.temvaga.enuns.DiasSemana;
+import org.junit.Ignore;
 
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.ManyToOne;
-import javax.persistence.JoinColumn;
-import javax.persistence.Column;
+import javax.persistence.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "estacionamento")
@@ -26,7 +21,7 @@ public class Estacionamento {
     @Column(name = "descricao")
     private String  descricao;
     @Column(name = "foto")
-    private byte[] foto;
+    private String foto;
 
     @Column(name = "cep")
     private String CEP;
@@ -61,11 +56,15 @@ public class Estacionamento {
     private String hrFechamento;
 
     private ArrayList<DiasSemana> diasFuncionamento;
+    private String telefone;
 
     @Column(name = "email_estacionamento")
     private String emailEstacionamento;
     @Column(name = "senha_estacionamento")
     private String senhaEstacionamento;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "estacionamento")
+    private List<Telefone> telefones;
 
     @ManyToOne
     @JoinColumn(name = "fk_id_usuario")
@@ -84,7 +83,7 @@ public class Estacionamento {
     public String getDescricao() {
         return descricao;
     }
-    public byte[] getFoto() {
+    public String getFoto() {
         return foto;
     }
     public String getCEP() {
@@ -137,6 +136,16 @@ public class Estacionamento {
     public String getSenhaEstacionamento() {
         return senhaEstacionamento;
     }
+    public List<String> getTelefones() {
+        List<String> Telefones = new ArrayList<>();
+        for( int i = 0 ; i < telefones.toArray().length ; i++ ){
+            Telefones.add(telefones.get(i).getTelefone());
+        }
+
+        return Telefones;
+    }
+    public String getTelefone() {return telefone;}
+
 
     //sets
     public void setUsuario(Usuario usuario) {
@@ -151,7 +160,7 @@ public class Estacionamento {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
-    public void setFoto(byte[] foto) {
+    public void setFoto(String foto) {
         this.foto = foto;
     }
     public void setCEP(String CEP) {
@@ -206,13 +215,16 @@ public class Estacionamento {
     public void setSenhaEstacionamento(String senhaEstacionamento) {
         this.senhaEstacionamento = senhaEstacionamento;
     }
+    public void setTelefones(List<Telefone> telefones) {this.telefones = telefones;}
+    public void setTelefone(String telefone) {this.telefone = telefone;}
+
 
     //constructors
     public Estacionamento(
             Integer id,
             String nomeEstacionamento,
             String descricao,
-            byte[] foto,
+            String foto,
             String CEP,
             String estado,
             String bairro,
@@ -253,6 +265,7 @@ public class Estacionamento {
         this.diasFuncionamento = diasFuncionamento;
         this.emailEstacionamento = emailEstacionamento;
         this.senhaEstacionamento = senhaEstacionamento;
+
     }
 
     public Estacionamento(){}

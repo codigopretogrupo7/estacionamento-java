@@ -2,14 +2,7 @@ package br.com.temvaga.model;
 
 import br.com.temvaga.enuns.Status;
 
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 
 @Entity
@@ -17,6 +10,7 @@ import javax.persistence.OneToOne;
 public class Vaga {
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
+   @Column(name="id_vaga")
    private Integer id;
 
 
@@ -25,11 +19,11 @@ public class Vaga {
    private String numeroVaga;
 
    @ManyToOne
-   @JoinColumn(name = "pk_id_estacionamento")
+   @JoinColumn(name = "fk_estacionamento")
    private Estacionamento estacionamento;
 
    @OneToOne
-   @JoinColumn(name = "pk_id_veiculo")
+   @JoinColumn(name = "fk_veiculo")
    private Veiculo veiculo;
 
    public Vaga(Integer id, Status situacao, String dtEntrada, Estacionamento estacionamento, Veiculo veiculo) {

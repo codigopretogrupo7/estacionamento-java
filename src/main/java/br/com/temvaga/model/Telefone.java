@@ -1,39 +1,53 @@
 package br.com.temvaga.model;
 
 
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.*;
 
 @Table(name = "telefone")
 @Entity
 public class Telefone {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_telefone")
     private  Integer id;
-    private  String Telefone;
+    @Column(name = "telefone")
+    private  String telefone;
+
+    @ManyToOne
+    @JoinColumn(name="fk_usuario")
+    private Usuario usuario;
+
+    @ManyToOne
+    @JoinColumn(name="fk_estacionamento")
+    private Estacionamento estacionamento;
 
     public Integer getId() {
         return id;
     }
+    public String getTelefone() {
+        return this.telefone;
+    }
+     public int getUsuario() {return usuario.getId();}
+     public int getEstacionamento() {return estacionamento.getId();}
 
     public void setId(Integer id) {
         this.id = id;
     }
-
-    public String getTelefone() {
-        return Telefone;
-    }
-
     public void setTelefone(String telefone) {
-        Telefone = telefone;
+        this.telefone = telefone;
     }
+     public void setUsuario(Usuario usuario) {this.usuario = usuario;}
+     public void setEstacionamento(Estacionamento estacionamento) {this.estacionamento = estacionamento;}
 
-    public Telefone(Integer id, String telefone) {
-        this.id = id;
-        Telefone = telefone;
+
+    public Telefone(String telefone, Usuario usuario) {
+        this.telefone = telefone;
+        this.usuario = usuario;
+    }
+    public Telefone(String telefone, Estacionamento estacionamento) {
+        this.telefone = telefone;
+        this.estacionamento = estacionamento;
     }
 
     public Telefone(){}

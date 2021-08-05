@@ -79,6 +79,7 @@ public class EstacionamentoService {
             Vaga vaga = new Vaga();
             vaga.setEstacionamento(estacionamentoCriado);
             vaga.setNumeroVaga(Integer.toString(i));
+            vaga.setSituacao("vazia");
             vagaRepository.save(vaga);
         }
 

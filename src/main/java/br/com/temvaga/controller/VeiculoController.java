@@ -21,11 +21,11 @@ public class VeiculoController {
     @Autowired
     VeiculoService veiculoService;
 
-    @RequestMapping("/list") public ResponseEntity<ArrayList<Veiculo>> findAll() {
+    @GetMapping("/list") public ResponseEntity<ArrayList<Veiculo>> findAll() {
         return veiculoService.listaTodosVeiculos();
     }
 
-    @RequestMapping("/list/id") public ResponseEntity<Veiculo> findAll(@RequestParam(name="id") Integer id) {
+    @GetMapping("/list/id") public ResponseEntity<Veiculo> findAll(@RequestParam(name="id") Integer id) {
         return veiculoService.VeiculoPorId(id);
     }
 
@@ -33,6 +33,9 @@ public class VeiculoController {
     public ResponseEntity<Veiculo> Add(@RequestBody Veiculo veiculo){
         return veiculoService.AdicionaVeiculo(veiculo);
     }
+
+
+
 
     @PutMapping(value="/update")
     public ResponseEntity<Veiculo> updateVeiculo(@RequestBody Veiculo veiculo,@RequestParam(name="id") Integer id){

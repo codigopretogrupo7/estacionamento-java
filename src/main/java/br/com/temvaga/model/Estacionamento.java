@@ -54,17 +54,13 @@ public class Estacionamento {
     private String hrAbertura;
     @Column(name = "horario_fechamento")
     private String hrFechamento;
-
-    private ArrayList<DiasSemana> diasFuncionamento;
+    @Column(name="telefone")
     private String telefone;
 
     @Column(name = "email_estacionamento")
     private String emailEstacionamento;
     @Column(name = "senha_estacionamento")
     private String senhaEstacionamento;
-
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "estacionamento")
-    private List<Telefone> telefones;
 
     @ManyToOne
     @JoinColumn(name = "fk_id_usuario")
@@ -127,22 +123,11 @@ public class Estacionamento {
     public String getHrFechamento() {
         return hrFechamento;
     }
-    public ArrayList<DiasSemana> getDiasFuncionamento() {
-        return diasFuncionamento;
-    }
     public String getEmailEstacionamento() {
         return emailEstacionamento;
     }
     public String getSenhaEstacionamento() {
         return senhaEstacionamento;
-    }
-    public List<String> getTelefones() {
-        List<String> Telefones = new ArrayList<>();
-        for( int i = 0 ; i < telefones.toArray().length ; i++ ){
-            Telefones.add(telefones.get(i).getTelefone());
-        }
-
-        return Telefones;
     }
     public String getTelefone() {return telefone;}
 
@@ -206,16 +191,13 @@ public class Estacionamento {
     public void setHrFechamento(String hrFechamento) {
         this.hrFechamento = hrFechamento;
     }
-    public void setDiasFuncionamento(ArrayList<DiasSemana> diasFuncionamento) {
-        this.diasFuncionamento = diasFuncionamento;
-    }
+
     public void setEmailEstacionamento(String emailEstacionamento) {
         this.emailEstacionamento = emailEstacionamento;
     }
     public void setSenhaEstacionamento(String senhaEstacionamento) {
         this.senhaEstacionamento = senhaEstacionamento;
     }
-    public void setTelefones(List<Telefone> telefones) {this.telefones = telefones;}
     public void setTelefone(String telefone) {this.telefone = telefone;}
 
 
@@ -239,10 +221,8 @@ public class Estacionamento {
             String frame,
             String hrAbertura,
             String hrFechamento,
-            ArrayList<DiasSemana> diasFuncionamento,
             String emailEstacionamento,
             String senhaEstacionamento,
-            String imgURL,
             Usuario usuario) {
         this.id = id;
         this.nomeEstacionamento = nomeEstacionamento;
@@ -262,7 +242,6 @@ public class Estacionamento {
         this.frame = frame;
         this.hrAbertura = hrAbertura;
         this.hrFechamento = hrFechamento;
-        this.diasFuncionamento = diasFuncionamento;
         this.emailEstacionamento = emailEstacionamento;
         this.senhaEstacionamento = senhaEstacionamento;
 

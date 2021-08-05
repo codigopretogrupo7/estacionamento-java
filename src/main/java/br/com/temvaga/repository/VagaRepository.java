@@ -10,7 +10,7 @@ import java.util.Optional;
 public interface VagaRepository extends JpaRepository<Vaga, Integer> {
     ArrayList<Vaga> findAll();
 
-    ArrayList<Vaga> findAllByEstacionamento(Estacionamento pk_id_estacionamento);
+    ArrayList<Vaga> findAllByEstacionamento(Estacionamento fk_estacionamento);
 
     Optional<Vaga> findById(Integer id);
 }

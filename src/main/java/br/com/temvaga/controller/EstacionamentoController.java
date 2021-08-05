@@ -24,7 +24,7 @@ public class EstacionamentoController {
     @Autowired
     private EstacionamentoService estacionamentoService;
 
-    @GetMapping("/list")
+    @GetMapping(value = "/list")
     public ResponseEntity<ArrayList<Estacionamento>> listTodosEstacionamentos() {
         return estacionamentoService.ListaTodosEstacionamentos();
     }

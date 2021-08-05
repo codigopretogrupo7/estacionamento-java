@@ -1,31 +1,20 @@
 package br.com.temvaga.service;
 
 import br.com.temvaga.model.Estacionamento;
-import br.com.temvaga.model.Telefone;
+import br.com.temvaga.model.Usuario;
 import br.com.temvaga.model.Vaga;
 import br.com.temvaga.repository.EstacionamentoRepository;
-import br.com.temvaga.repository.TelefoneRepository;
 import br.com.temvaga.repository.UsuarioRepository;
 import br.com.temvaga.repository.VagaRepository;
 
-import org.apache.tomcat.util.http.fileupload.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
-import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Optional;
-import java.util.Base64;
 
 @Service
 public class EstacionamentoService {
@@ -39,8 +28,7 @@ public class EstacionamentoService {
     private VagaRepository vagaRepository;
     @Autowired
     private UsuarioRepository usuarioRepository;
-    @Autowired
-    private TelefoneRepository telefoneRepository;
+
 
     public ResponseEntity<ArrayList<Estacionamento>> ListaTodosEstacionamentos(){
         ArrayList<Estacionamento> estacionamentos = (ArrayList<Estacionamento>) estacionamentoRepository.findAll();
@@ -86,9 +74,6 @@ public class EstacionamentoService {
 
         Optional<Estacionamento> estacionamentoProcurado = estacionamentoRepository.findById(idEstacionamento);
         Estacionamento estacionamentoCriado = estacionamentoProcurado.get();
-
-        Telefone telefone = new Telefone(estacionamento.getTelefone(), estacionamentoCriado);
-        telefoneRepository.save(telefone);
 
         for (int i = 1; i <= numeroDeVagas; i++) {
             Vaga vaga = new Vaga();
@@ -149,10 +134,10 @@ public class EstacionamentoService {
             velhoEstacionamentoEditado.setFrame(estacionamento.getFrame());
             velhoEstacionamentoEditado.setHrAbertura(estacionamento.getHrAbertura());
             velhoEstacionamentoEditado.setHrFechamento(estacionamento.getHrFechamento());
-            velhoEstacionamentoEditado.setDiasFuncionamento(estacionamento.getDiasFuncionamento());
             velhoEstacionamentoEditado.setEmailEstacionamento(estacionamento.getEmailEstacionamento());
             velhoEstacionamentoEditado.setSenhaEstacionamento(estacionamento.getSenhaEstacionamento());
             velhoEstacionamentoEditado.setCEP(estacionamento.getCEP());
+            velhoEstacionamentoEditado.setTelefone(estacionamento.getTelefone());
 
             estacionamentoRepository.save(velhoEstacionamentoEditado);
             return new ResponseEntity<Estacionamento>(velhoEstacionamentoEditado, HttpStatus.OK);
@@ -160,6 +145,10 @@ public class EstacionamentoService {
         }else{
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
+    }
+
+    public ArrayList<Estacionamento>  EstacionamentoPorUsuario(Usuario usuario){
+        return estacionamentoRepository.findAllByUsuario(usuario);
     }
 
 

@@ -2,16 +2,12 @@ package br.com.temvaga.controller;
 
 import br.com.temvaga.model.Veiculo;
 import br.com.temvaga.repository.VeiculoRepository;
+import br.com.temvaga.service.VeiculoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.*;
 
 
 import java.util.ArrayList;
@@ -21,21 +17,30 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/veiculos")
 public class VeiculoController {
+
     @Autowired
-    VeiculoRepository veiculoRepository;
+    VeiculoService veiculoService;
 
-    @RequestMapping("/list") public ArrayList<Veiculo> findAll() {
-    return (ArrayList<Veiculo>) veiculoRepository.findAll();
-}
+    @RequestMapping("/list") public ResponseEntity<ArrayList<Veiculo>> findAll() {
+        return veiculoService.listaTodosVeiculos();
+    }
 
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public void Add(@RequestBody Veiculo veiculo){
-    veiculoRepository.save(veiculo);
-}
+    @RequestMapping("/list/id") public ResponseEntity<Veiculo> findAll(@RequestParam(name="id") Integer id) {
+        return veiculoService.VeiculoPorId(id);
+    }
 
-    @DeleteMapping(path = "/{id}")
-    public ResponseEntity<Void> del(@PathVariable Integer id){
-    Optional<Veiculo> delete = veiculoRepository.findById(id);
-    return  new ResponseEntity<>(HttpStatus.NO_CONTENT);
-}
+    @PostMapping(value = "/add")
+    public ResponseEntity<Veiculo> Add(@RequestBody Veiculo veiculo){
+        return veiculoService.AdicionaVeiculo(veiculo);
+    }
+
+    @PutMapping(value="/update")
+    public ResponseEntity<Veiculo> updateVeiculo(@RequestBody Veiculo veiculo,@RequestParam(name="id") Integer id){
+        return veiculoService.AtualizarVeiculo( id, veiculo );
+    }
+
+    @DeleteMapping(value="/delete")
+    public ResponseEntity<Veiculo> del(@RequestParam(name="id") Integer id){
+        return  veiculoService.DeletarVeiculo(id);
+    }
 }

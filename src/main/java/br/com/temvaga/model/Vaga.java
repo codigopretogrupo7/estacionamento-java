@@ -1,8 +1,7 @@
 package br.com.temvaga.model;
 
-import br.com.temvaga.enuns.Status;
-
 import javax.persistence.*;
+import java.util.Date;
 
 
 @Entity
@@ -13,9 +12,9 @@ public class Vaga {
    @Column(name="id")
    private Integer id;
 
-   private Status situacao;
+   private String situacao;
    @Column(name="hora_entrada")
-   private String dtEntrada;
+   private Date dtEntrada;
    @Column(name="num_vaga")
    private String numeroVaga;
 
@@ -27,7 +26,7 @@ public class Vaga {
    @JoinColumn(name = "fk_veiculo")
    private Veiculo veiculo;
 
-   public Vaga(Integer id, Status situacao, String dtEntrada, Estacionamento estacionamento, Veiculo veiculo) {
+   public Vaga(Integer id, String situacao, Date dtEntrada, Estacionamento estacionamento, Veiculo veiculo) {
       this.id = id;
       this.situacao = situacao;
       this.dtEntrada = dtEntrada;
@@ -55,19 +54,19 @@ public class Vaga {
       this.id = id;
    }
 
-   public Status getSituacao() {
+   public String getSituacao() {
       return situacao;
    }
 
-   public void setSituacao(Status situacao) {
+   public void setSituacao(String situacao) {
       this.situacao = situacao;
    }
 
-   public String getDtEntrada() {
+   public Date getDtEntrada() {
       return dtEntrada;
    }
 
-   public void setDtEntrada(String dtEntrada) {
+   public void setDtEntrada(Date dtEntrada) {
       this.dtEntrada = dtEntrada;
    }
 

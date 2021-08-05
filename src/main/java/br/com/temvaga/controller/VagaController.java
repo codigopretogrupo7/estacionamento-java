@@ -1,14 +1,12 @@
 package br.com.temvaga.controller;
 
 import br.com.temvaga.model.Vaga;
-import br.com.temvaga.repository.VagaRepository;
+import br.com.temvaga.model.Veiculo;
 import br.com.temvaga.service.VagaService;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 
@@ -18,18 +16,22 @@ import java.util.ArrayList;
 public class VagaController {
 
     @Autowired
-    VagaRepository vagaRepository;
-
-    @Autowired
     VagaService vagaService;
 
-    @RequestMapping("/list")
-    public ArrayList<Vaga> listAll(){
-        return vagaRepository.findAll();
+    @GetMapping("/list")
+    public ResponseEntity<ArrayList<Vaga>> listAll(){
+        return vagaService.todasAsVagas();
     }
 
-    @RequestMapping(value="/listvaga", method = RequestMethod.GET)
-    public ArrayList<Vaga> listaVagas(@RequestParam Integer id ){
-        return vagaService.listavagas(id);
+    @GetMapping(value="/listvaga")
+    public ResponseEntity<ArrayList<Vaga>> listaVagas(@RequestParam(name="id") Integer id ) {
+        return vagaService.listaVagas(id);
+    }
+
+    @PostMapping(value="/insertveiculo")
+    public ResponseEntity<Vaga> insereVagas(@RequestBody Veiculo veiculo,
+                                            @RequestParam(name="id") Integer id,
+                                            @RequestParam(name="situacao") String situacao){
+        return vagaService.InsereCarroNaVaga( id,veiculo, situacao );
     }
 }

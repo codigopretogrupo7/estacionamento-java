@@ -49,7 +49,7 @@ public class VagaService {
         }
     }
 
-    public ResponseEntity<Vaga> InsereCarroNaVaga(Integer id, Veiculo carro,String situacao){
+    public ResponseEntity<Vaga> InsereCarroNaVaga(Integer id, Veiculo carro, String situacao){
         Optional<Veiculo> veiculo = veiculoRepository.findById(carro.getId());
         Optional<Vaga> vaga = vagaRepository.findById(id);
 

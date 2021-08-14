@@ -1,13 +1,6 @@
 package br.com.temvaga.model;
 
-import br.com.temvaga.enuns.DiasSemana;
-import org.junit.Ignore;
-
 import javax.persistence.*;
-
-import java.util.ArrayList;
-import java.util.List;
-
 @Entity
 @Table(name = "estacionamento")
 public class Estacionamento {
@@ -56,6 +49,8 @@ public class Estacionamento {
     private String hrFechamento;
     @Column(name="telefone")
     private String telefone;
+    @Column(name="mode")
+    private String mode;
 
     @Column(name = "email")
     private String emailEstacionamento;
@@ -67,6 +62,8 @@ public class Estacionamento {
     private Usuario usuario;
 
     //gets
+
+    public String getMode() {return mode;}
     public int getUsuario() {
         return usuario.getId();
     }
@@ -133,6 +130,8 @@ public class Estacionamento {
 
 
     //sets
+
+    public void setMode(String mode) {this.mode = mode;}
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }

@@ -1,7 +1,7 @@
 package br.com.temvaga.constants;
 
 public class SecurityConstants {
-    public static final String SIGN_UP_URL = "/usuarios/add";
+    public static final String SIGN_UP_URL = "/api/usuarios/add";
     public static final String[] AUTH_LIST = {
             // -- swagger ui
             "**/swagger-resources/**",

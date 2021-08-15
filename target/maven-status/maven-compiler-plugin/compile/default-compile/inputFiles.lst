@@ -4,7 +4,6 @@
 /home/lucas/IdeaProjects/est/estacionamento-java/src/main/java/br/com/temvaga/service/GerenciamentoService.java
 /home/lucas/IdeaProjects/est/estacionamento-java/src/main/java/br/com/temvaga/controller/EstacionamentoController.java
 /home/lucas/IdeaProjects/est/estacionamento-java/src/main/java/br/com/temvaga/security/AuthorizationFilter.java
-/home/lucas/IdeaProjects/est/estacionamento-java/src/main/java/br/com/temvaga/repository/UserRepository.java
 /home/lucas/IdeaProjects/est/estacionamento-java/src/main/java/br/com/temvaga/service/VagaService.java
 /home/lucas/IdeaProjects/est/estacionamento-java/src/main/java/br/com/temvaga/service/EstacionamentoService.java
 /home/lucas/IdeaProjects/est/estacionamento-java/src/main/java/br/com/temvaga/controller/VagaController.java

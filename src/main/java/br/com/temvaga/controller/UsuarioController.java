@@ -26,6 +26,12 @@ public class UsuarioController {
         return usuarioService.usuarioById(id);
     }
 
+    @ApiOperation(value = "Lista usuario por nome")
+    @GetMapping(value = "/list/name")
+    public ResponseEntity<Usuario> usuarioByName(@RequestParam(name = "username") String nome){
+        return usuarioService.usuarioByNameUser(nome);
+    }
+
     @ApiOperation(value = "Listar todos os usuarios cadastrados")
     @GetMapping(value = "/list")
     public ResponseEntity<ArrayList<Usuario>> findAll(){

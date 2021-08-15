@@ -32,6 +32,8 @@ public class Usuario {
     private String senha;
     @Column(name="telefone")
     private String telefone;
+    @Column(name="mode")
+    private String mode;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario")
     private List<Estacionamento> estacionamentos;
@@ -40,7 +42,6 @@ public class Usuario {
     private  List<Veiculo> veiculo;
 
     // GETS
-
     public Integer getId() {
         return id;
     }
@@ -60,6 +61,7 @@ public class Usuario {
         return senha;
     }
     public String getTelefone() {return telefone;}
+    public String getMode() {return mode;}
 
     public List<Integer> getEstacionamentos() {
         List<Integer> idsEstacionamentos = new ArrayList<Integer>();
@@ -86,9 +88,7 @@ public class Usuario {
     public void setNome(String nome) {
         this.nome = nome;
     }
-    public void setSobreNome(String sobreNome) {
-        this.sobrenome = sobreNome;
-    }
+    public void setSobrenome(String sobrenome) {this.sobrenome = sobrenome;}
     public void setCNH(String CNH) {
         this.CNH = CNH;
     }
@@ -98,7 +98,7 @@ public class Usuario {
     public void setSenha(String sennha) {
         this.senha = sennha;
     }
-
+    public void setMode(String mode) {this.mode = mode;}
     public void setEstacionamentos(List<Estacionamento> estacionamentos) {
         this.estacionamentos = estacionamentos;
     }
@@ -109,27 +109,6 @@ public class Usuario {
 
     // CONSTRUCTORS
 
-    public Usuario(
-            Integer id,
-            String nome,
-            String sobreNome,
-            String CNH,
-            String email,
-            String sennha,
-            ArrayList<Estacionamento> estacionamentos,
-            String telefone) {
-
-        this.id = id;
-        this.nome = nome;
-        this.sobrenome = sobreNome;
-        this.CNH = CNH;
-        this.email = email;
-        this.senha = sennha;
-        this.estacionamentos = estacionamentos;
-        this.telefone = telefone;
-    }
-
-    public Usuario() {
-    }
+    public Usuario() {}
 }
 

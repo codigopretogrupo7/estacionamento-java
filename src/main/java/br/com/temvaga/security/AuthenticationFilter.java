@@ -37,8 +37,7 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
             Usuario user = (Usuario) new ObjectMapper().readValue(req.getInputStream(), Usuario.class);
 
             return authenticationManager.authenticate(
-                    new UsernamePasswordAuthenticationToken(user.getNome(),
-                            user.getSenha())
+                    new UsernamePasswordAuthenticationToken(user.getNome(), user.getSenha())
             );
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -54,5 +53,6 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
         Claims claims = Jwts.claims().setSubject(((org.springframework.security.core.userdetails.User) auth.getPrincipal()).getUsername());
         String token = Jwts.builder().setClaims(claims).signWith(key, SignatureAlgorithm.HS512).setExpiration(exp).compact();
         res.addHeader("token", token);
+        System.out.println(token);
     }
 }

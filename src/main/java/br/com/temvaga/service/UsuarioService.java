@@ -35,6 +35,15 @@ public class UsuarioService {
         }
     }
 
+    public ResponseEntity<Usuario> usuarioByNameUser(String nome) {
+        try {
+            Usuario usuario = usuarioRepository.findByNome(nome);
+            return new ResponseEntity<>(usuario, HttpStatus.OK);
+        } catch (NullPointerException exception){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
     public ResponseEntity<ArrayList<Usuario>> listaTodosUsuarios (){
         ArrayList<Usuario> usuarios = (ArrayList<Usuario>) usuarioRepository.findAll();
         if( usuarios.isEmpty() ){

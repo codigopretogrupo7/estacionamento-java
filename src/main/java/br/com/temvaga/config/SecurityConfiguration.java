@@ -23,7 +23,7 @@ import java.util.Collections;
 
 import static br.com.temvaga.constants.SecurityConstants.SIGN_UP_URL;
 import static br.com.temvaga.constants.SecurityConstants.AUTH_LIST;
-import static br.com.temvaga.constants.SecurityConstants.URL;
+import static br.com.temvaga.constants.SecurityConstants.URLS;
 
 @Configuration
 @EnableWebSecurity
@@ -33,7 +33,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable().authorizeRequests()
                 .antMatchers(HttpMethod.POST, SIGN_UP_URL).permitAll()
-                .antMatchers(HttpMethod.GET, URL).permitAll()
+                .antMatchers(HttpMethod.GET, URLS).permitAll()
                 .antMatchers(AUTH_LIST).authenticated()
                 .and()
                 .addFilter(new AuthenticationFilter(authenticationManager()))

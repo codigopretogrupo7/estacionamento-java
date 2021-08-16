@@ -14,13 +14,14 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Optional;
+import java.util.Random;
 
-import br.com.temvaga.enuns.Status;
 
 @Service
 public class VagaService {
 
     Calendar calendario = Calendar.getInstance();
+    Random random = new Random();
 
     @Autowired
     EstacionamentoRepository estacionamentoRepository;
@@ -49,7 +50,60 @@ public class VagaService {
         }
     }
 
-    public ResponseEntity<Vaga> InsereCarroNaVaga(Integer id, Veiculo carro, String situacao){
+    public ResponseEntity<Integer> vagaslivres(Integer numeroEstacionamento){
+        Optional<Estacionamento> estacionamento = estacionamentoRepository.findById(numeroEstacionamento);
+
+        if( estacionamento.isPresent() ){
+            ArrayList<Vaga> vagas = vagaRepository.findAllByEstacionamento(estacionamento.get());
+            ArrayList<Vaga> vagasVazias = new ArrayList<>();
+
+            String situacao = "vazia";
+
+            for( int i = 0 ; i < vagas.toArray().length ; i++ ){
+                if(vagas.get(i).getSituacao().equals(situacao)){
+                    vagasVazias.add(vagas.get(i));
+                }
+            }
+
+            return new ResponseEntity<Integer>(vagasVazias.toArray().length,HttpStatus.OK);
+        }else{
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    public ResponseEntity<Vaga> ReservarVaga(Integer idEstacionamento, Veiculo carro){
+        Optional<Estacionamento> estacionamento = estacionamentoRepository.findById(idEstacionamento);
+        if( estacionamento.isPresent() ){
+            ArrayList<Vaga> vagas = vagaRepository.findAllByEstacionamento(estacionamento.get());
+            ArrayList<Vaga> vagasVazias = new ArrayList<>();
+
+            String situacao = "vazia";
+
+            for( int i = 0 ; i < vagas.toArray().length ; i++ ){
+                if(vagas.get(i).getSituacao().equals(situacao)){
+                    vagasVazias.add(vagas.get(i));
+                }
+            }
+            if(vagasVazias.toArray().length > 0){
+                int numeroSorteado = random.nextInt(vagasVazias.toArray().length);
+                Optional<Veiculo> veiculo = veiculoRepository.findById(carro.getId());
+
+                Vaga vagaSorteada = vagasVazias.get(numeroSorteado);
+                vagaSorteada.setVeiculo(veiculo.get());
+                vagaSorteada.setDtEntrada(calendario.getTime());
+                vagaSorteada.setSituacao("reservada");
+                vagaRepository.save(vagaSorteada);
+                return new ResponseEntity<Vaga>(vagaSorteada,HttpStatus.OK);
+
+            }else{
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+        }else{
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    public ResponseEntity<Vaga> InsereCarroNaVaga(Integer id, Veiculo carro){
         Optional<Veiculo> veiculo = veiculoRepository.findById(carro.getId());
         Optional<Vaga> vaga = vagaRepository.findById(id);
 
@@ -57,7 +111,7 @@ public class VagaService {
             Vaga vagaCriada = vaga.get();
             vagaCriada.setVeiculo(veiculo.get());
             vagaCriada.setDtEntrada(calendario.getTime());
-            vagaCriada.setSituacao(situacao);
+            vagaCriada.setSituacao("ocupada");
 
             vagaRepository.save(vagaCriada);
             return new ResponseEntity<Vaga>(vagaCriada,HttpStatus.OK);

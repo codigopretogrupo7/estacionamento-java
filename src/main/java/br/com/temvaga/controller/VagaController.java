@@ -37,12 +37,23 @@ public class VagaController {
     )
     @PostMapping(value="/insertveiculo")
     public ResponseEntity<Vaga> insereVagas(@RequestBody Veiculo veiculo,
-                                            @RequestParam(name="id") Integer id,
-                                            @RequestParam(name="situacao") String situacao){
-        return vagaService.InsereCarroNaVaga( id,veiculo, situacao );
+                                            @RequestParam(name="id") Integer id){
+        return vagaService.InsereCarroNaVaga( id,veiculo );
     }
 
-    @ApiOperation(value = "Retira o veiculo da vaga")
+    @PostMapping(value="/reservavaga")
+    public ResponseEntity<Vaga> reservaVagas(@RequestBody Veiculo veiculo,
+                                            @RequestParam(name="id") Integer id){
+        return vagaService.ReservarVaga( id,veiculo );
+    }
+
+    @GetMapping(value="/vagaslivres")
+    public ResponseEntity<Integer> vagaslivres(@RequestParam(name="id") Integer id) {
+        return vagaService.vagaslivres(id);
+    }
+
+
+        @ApiOperation(value = "Retira o veiculo da vaga")
     @PostMapping(value="/checkout")
     public ResponseEntity<Vaga> checkout(@RequestParam(name="id") Integer id){
         return vagaService.Checkout(id);

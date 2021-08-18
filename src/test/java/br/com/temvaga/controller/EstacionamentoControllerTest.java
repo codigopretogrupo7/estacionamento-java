@@ -1,30 +1,33 @@
 package br.com.temvaga.controller;
 
+import static io.restassured.module.mockmvc.RestAssuredMockMvc.given;
+import static io.restassured.module.mockmvc.RestAssuredMockMvc.standaloneSetup;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
+
+import br.com.temvaga.model.Estacionamento;
 import br.com.temvaga.service.EstacionamentoService;
+import io.restassured.http.ContentType;
 import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.HttpStatus;
 import org.springframework.test.context.junit4.SpringRunner;
-import io.restassured.module.mockmvc.RestAssuredMockMvc;
-import static org.mockito.Mockito.never;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-import org.mockito.Mockito;
-'1q'
+
+import io.restassured.http.ContentType;
 
 
-import static io.restassured.module.mockmvc.RestAssuredMockMvc.standaloneSetup;
 
-
-@RunWith(SpringRunner.class)
-@WebMvcTest(EstacionamentoController.class)
-class EstacionamentoControllerTest {
+@WebMvcTest
+public class EstacionamentoControllerTest {
 
     @Autowired
-    private EstacionamentoController estacionamentoController;
+    public EstacionamentoController estacionamentoController;
 
     @MockBean
     private EstacionamentoService estacionamentoService;
@@ -35,14 +38,23 @@ class EstacionamentoControllerTest {
         standaloneSetup(this.estacionamentoController);
     }
 
+
+
     @Test
-    public void deveRetornarSucesso_QuandoBuscarVagaPorId(){
-        when(this.estacionamentoService.ListaEstacionamentoPorId(1));
-        Mockito.Return
+    public void  deveRetornarBadRequest_QuandoBuscarEstacionamen(){
+        when(this.estacionamentoService.ListaEstacionamentoPorId(1))
+                .thenReturn(null);
+        given()
+                .accept(ContentType.JSON)
+                .when()
+                .get("/Estacionamento/{id}", 5)
+                .then()
+                .statusCode(HttpStatus.NOT_FOUND.value());
+    }
+
     }
 
 
 
 
 
-}

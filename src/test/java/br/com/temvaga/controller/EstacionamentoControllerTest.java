@@ -24,9 +24,6 @@ class EstacionamentoControllerTest {
     @MockBean
     private EstacionamentoService estacionamentoService;
 
-    @Test
-    public void callingWithoutParametersListByIdShouReturnBadRequest(){
-        Optional<Category>
-    }
+    
 
 }

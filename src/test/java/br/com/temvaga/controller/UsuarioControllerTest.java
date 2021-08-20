@@ -50,6 +50,24 @@ public class UsuarioControllerTest {
                                 .queryParam("username","Cristala")
                                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
+        }
+    @Test
+    public void deveRetornarBadRequest_QuandoBurcaUsuário() throws Exception{
+        Mockito.when(usuarioService.usuarioByNameUser("")).thenReturn(new ResponseEntity<Usuario>( HttpStatus.BAD_REQUEST));
+        this.mockMvc.perform(
+                        get("/api/usuarios/list/name")
+                                .accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    public void deveRetornarNotFound_QuandoBurcaUsuárioPorNome() throws Exception{
+        Mockito.when(usuarioService.usuarioByNameUser("")).thenReturn(new ResponseEntity<Usuario>( HttpStatus.NOT_FOUND));
+        this.mockMvc.perform(
+                        get("/api/usuarios/list/name")
+                                .queryParam("username","test")
+                                .accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isNotFound());
 
 
     }

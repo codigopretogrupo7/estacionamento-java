@@ -26,7 +26,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @AutoConfigureMockMvc
 @RunWith(SpringRunner.class)
-@WithMockUser(username = "cristala")
+@WithMockUser(username = "root")
 
 @WebMvcTest(EstacionamentoController.class)
 public class EstacionamentoControllerTest {
@@ -49,20 +49,17 @@ public class EstacionamentoControllerTest {
                                 .queryParam("id","1")
                                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
-               //.andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                //.andExpect(jsonPath("$.id").value(1));//talvez colocar id
+
 
     }
     @Test
     public void  deveRetornarNotFound_QuandoBuscarEstacionamen() throws Exception{
-        Estacionamento est = new Estacionamento(3);
-        Mockito.when(estacionamentoService.ListaEstacionamentoPorId(1)).thenReturn(new ResponseEntity<Estacionamento>(est,HttpStatus.BAD_REQUEST));
+        Mockito.when(estacionamentoService.ListaEstacionamentoPorId(1)).thenReturn(new ResponseEntity<Estacionamento>(HttpStatus.NOT_FOUND));
         this.mockMvc.perform(
                         get("/api/estacionamentos/list/id")
                                 .queryParam("id","1")
                                 .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isBadRequest());
-
+                .andExpect(status().isNotFound());
     }
 
 

@@ -26,7 +26,7 @@ public class Vaga {
    @JoinColumn(name = "fk_veiculo")
    private Veiculo veiculo;
 
-   public Vaga(Integer id, String situacao, Date dtEntrada, Estacionamento estacionamento, Veiculo veiculo) {
+   public Vaga(Integer id) {
       this.id = id;
       this.situacao = situacao;
       this.dtEntrada = dtEntrada;

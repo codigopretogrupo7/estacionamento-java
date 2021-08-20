@@ -62,7 +62,7 @@ public class UsuarioControllerTest {
 
     @Test
     public void deveRetornarNotFound_QuandoBurcaUsuárioPorNome() throws Exception{
-        Mockito.when(usuarioService.usuarioByNameUser("")).thenReturn(new ResponseEntity<Usuario>( HttpStatus.NOT_FOUND));
+        Mockito.when(usuarioService.usuarioByNameUser("Teste")).thenReturn(new ResponseEntity<Usuario>( HttpStatus.NOT_FOUND));
         this.mockMvc.perform(
                         get("/api/usuarios/list/name")
                                 .queryParam("username","test")

@@ -13,8 +13,14 @@ public class Vaga {
    private Integer id;
 
    private String situacao;
+
    @Column(name="hora_entrada")
-   private Date dtEntrada;
+   private String hora_entrada;
+   @Column(name="dia_entrada")
+   private String dia_entrada;
+   @Column(name="mes_entrada")
+   private String mes_entrada;
+
    @Column(name="num_vaga")
    private String numeroVaga;
 
@@ -26,14 +32,24 @@ public class Vaga {
    @JoinColumn(name = "fk_veiculo")
    private Veiculo veiculo;
 
-   public Vaga(Integer id, String situacao, Date dtEntrada, Estacionamento estacionamento, Veiculo veiculo) {
+   public Vaga(Integer id, String situacao, String dtEntrada, Estacionamento estacionamento, Veiculo veiculo) {
       this.id = id;
       this.situacao = situacao;
-      this.dtEntrada = dtEntrada;
+      this.hora_entrada = dtEntrada;
       this.estacionamento = estacionamento;
       this.veiculo = veiculo;
    }
 
+   public Vaga(Integer id, String situacao, String hora_entrada, String dia_entrada, String mes_entrada, String numeroVaga, Estacionamento estacionamento, Veiculo veiculo) {
+      this.id = id;
+      this.situacao = situacao;
+      this.hora_entrada = hora_entrada;
+      this.dia_entrada = dia_entrada;
+      this.mes_entrada = mes_entrada;
+      this.numeroVaga = numeroVaga;
+      this.estacionamento = estacionamento;
+      this.veiculo = veiculo;
+   }
 
    public String getNumeroVaga() {
       return numeroVaga;
@@ -44,6 +60,31 @@ public class Vaga {
    }
 
    public Vaga() {
+   }
+
+   public String getHora_entrada() {
+      return hora_entrada;
+   }
+
+   public void setHora_entrada(String hora_entrada) {
+      this.hora_entrada = hora_entrada;
+   }
+
+   public String getDia_entrada() {
+      return dia_entrada;
+   }
+
+   public void setDia_entrada(String dia_entrada) {
+      this.dia_entrada = dia_entrada;
+   }
+
+
+   public String getMes_entrada() {
+      return mes_entrada;
+   }
+
+   public void setMes_entrada(String mes_entrada) {
+      this.mes_entrada = mes_entrada;
    }
 
    public Integer getId() {
@@ -60,14 +101,6 @@ public class Vaga {
 
    public void setSituacao(String situacao) {
       this.situacao = situacao;
-   }
-
-   public Date getDtEntrada() {
-      return dtEntrada;
-   }
-
-   public void setDtEntrada(Date dtEntrada) {
-      this.dtEntrada = dtEntrada;
    }
 
    public int getEstacionamento() {

@@ -10,9 +10,9 @@ import br.com.temvaga.repository.VagaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Optional;
 
@@ -21,13 +21,14 @@ public class EstacionamentoService {
 
     private static String caminhoImagens = "/home/lucas/IdeaProjects/estacionamento-java/src/main/";
 
-
     @Autowired
     private EstacionamentoRepository estacionamentoRepository;
     @Autowired
     private VagaRepository vagaRepository;
     @Autowired
     private UsuarioRepository usuarioRepository;
+    @Autowired
+    PasswordEncoder bCryptPasswordEncoder;
 
 
     public ResponseEntity<ArrayList<Estacionamento>> ListaTodosEstacionamentos(){
@@ -47,26 +48,8 @@ public class EstacionamentoService {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-//, MultipartFile arquivo) throws IOException
-    public ResponseEntity<Estacionamento> AdicionaEstacionamento(Estacionamento estacionamento) throws IOException {
-
-//        if(!arquivo.isEmpty()){
-//         byte[] bytes = arquivo.getBytes();
-//         Path caminho = Paths.get(caminhoImagens+String.valueOf(estacionamento.getId())+arquivo.getOriginalFilename());
-//         Files.write(caminho, bytes);
-//         estacionamento.setFoto(String.valueOf(estacionamento.getId())+arquivo.getOriginalFilename());
-//        }
-
-
-
-//        byte[] arquivo = Base64.getDecoder().decode(estacionamento.getFoto());
-//System.out.println()
-//
-//        File ars = new File(caminhoImagens);
-//
-//        System.out.println(ars);
-
-
+    public ResponseEntity<Estacionamento> AdicionaEstacionamento(Estacionamento estacionamento) {
+        estacionamento.setSenhaEstacionamento((bCryptPasswordEncoder.encode(estacionamento.getSenhaEstacionamento())));
         estacionamentoRepository.save(estacionamento);
 
         int numeroDeVagas = estacionamento.getNumVagas();
@@ -82,9 +65,6 @@ public class EstacionamentoService {
             vaga.setSituacao("vazia");
             vagaRepository.save(vaga);
         }
-
-
-
         return new ResponseEntity<Estacionamento>(estacionamento,HttpStatus.CREATED);
     }
 
@@ -152,5 +132,18 @@ public class EstacionamentoService {
         return estacionamentoRepository.findAllByUsuario(usuario);
     }
 
+    public ResponseEntity<Estacionamento> BuscarPorEmail(String email, String senha){
+        Optional<Estacionamento> estacionamento = estacionamentoRepository.findByEmailEstacionamento(email);
+        if(estacionamento.isPresent()){
+            Estacionamento estacionamentoCriado = estacionamento.get();
+            if(bCryptPasswordEncoder.matches(senha,estacionamentoCriado.getSenhaEstacionamento())){
+                return new ResponseEntity<Estacionamento>(estacionamentoCriado, HttpStatus.OK);
+            }else{
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+        }else{
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
 
 }

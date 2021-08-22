@@ -27,8 +27,12 @@ public class VeiculoController {
     }
 
     @ApiOperation(value = "Listar informaçoes sobe veiculo cadastrado pelo seu id")
-    @GetMapping("/list/id") public ResponseEntity<Veiculo> findAll(@RequestParam(name="id") Integer id) {
+    @GetMapping("/list/id") public ResponseEntity<Veiculo> procuraPorId(@RequestParam(name="id") Integer id) {
         return veiculoService.VeiculoPorId(id);
+    }
+    @ApiOperation(value = "Lista veiculos de determinado usuario")
+    @GetMapping("/list/iduser") public ResponseEntity<ArrayList<Veiculo>> procuraPorUsuario(@RequestParam(name="id") Integer id) {
+        return veiculoService.VeiculosPorUsuario(id);
     }
 
     @ApiOperation(value = "Adicionar um novo veiculo")

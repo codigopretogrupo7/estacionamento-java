@@ -2,6 +2,7 @@ package br.com.temvaga.service;
 
 import br.com.temvaga.model.Usuario;
 import br.com.temvaga.model.Veiculo;
+import br.com.temvaga.repository.UsuarioRepository;
 import br.com.temvaga.repository.VeiculoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,6 +17,9 @@ public class VeiculoService {
 
     @Autowired
     private VeiculoRepository veiculoRepository;
+
+    @Autowired
+    private UsuarioRepository usuarioRepository;
 
     public ResponseEntity<ArrayList<Veiculo>> listaTodosVeiculos(){
         ArrayList<Veiculo> veiculos = (ArrayList<Veiculo>) veiculoRepository.findAll();
@@ -67,8 +71,15 @@ public class VeiculoService {
         }
     }
 
-    public ArrayList<Veiculo> VeiculosPorUsuario(Usuario usuario){
-        return veiculoRepository.findAllByUsuario(usuario);
+    public ResponseEntity<ArrayList<Veiculo>> VeiculosPorUsuario(Integer id){
+        Optional<Usuario> usuario = usuarioRepository.findById(id);
+        if(usuario.isPresent()){
+            ArrayList<Veiculo> listaDeVeiculos = veiculoRepository.findAllByUsuario(usuario.get());
+            return new ResponseEntity<ArrayList<Veiculo>>(listaDeVeiculos, HttpStatus.OK);
+        }else{
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
     }
 
 }

@@ -17,12 +17,10 @@
 /home/lucas/IdeaProjects/est/estacionamento-java/src/main/java/br/com/temvaga/Main.java
 /home/lucas/IdeaProjects/est/estacionamento-java/src/main/java/br/com/temvaga/constants/SecurityConstants.java
 /home/lucas/IdeaProjects/est/estacionamento-java/src/main/java/br/com/temvaga/service/VeiculoService.java
-/home/lucas/IdeaProjects/est/estacionamento-java/src/main/java/br/com/temvaga/enuns/Status.java
 /home/lucas/IdeaProjects/est/estacionamento-java/src/main/java/br/com/temvaga/controller/VeiculoController.java
 /home/lucas/IdeaProjects/est/estacionamento-java/src/main/java/br/com/temvaga/model/Vaga.java
 /home/lucas/IdeaProjects/est/estacionamento-java/src/main/java/br/com/temvaga/repository/VeiculoRepository.java
 /home/lucas/IdeaProjects/est/estacionamento-java/src/main/java/br/com/temvaga/service/UsuarioService.java
 /home/lucas/IdeaProjects/est/estacionamento-java/src/main/java/br/com/temvaga/controller/UsuarioController.java
-/home/lucas/IdeaProjects/est/estacionamento-java/src/main/java/br/com/temvaga/enuns/DiasSemana.java
 /home/lucas/IdeaProjects/est/estacionamento-java/src/main/java/br/com/temvaga/model/Usuario.java
 /home/lucas/IdeaProjects/est/estacionamento-java/src/main/java/br/com/temvaga/config/SecurityConfiguration.java

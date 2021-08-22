@@ -18,7 +18,6 @@ public class Veiculo {
     private String cor;
     private String modelo;
     private String placa;
-    private String usuarioTemporario;
 
     @ManyToOne
     @JoinColumn(name = "fk_usuario")
@@ -34,8 +33,7 @@ public class Veiculo {
     public String getPlaca() {
         return placa;
     }
-    public String getUsuario() {return usuario.getNome();}
-    public String getUsuarioTemporario() {return usuarioTemporario;}
+    public Usuario getUsuario() {return usuario;}
 
     public void setId(Integer id) {
         this.id = id;
@@ -52,7 +50,6 @@ public class Veiculo {
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
-    public void setUsuarioTemporario(String usuarioTemporario) {this.usuarioTemporario = usuarioTemporario;}
 
     public Veiculo(Integer id,
                    String cor,
@@ -75,7 +72,6 @@ public class Veiculo {
         this.cor = cor;
         this.modelo = modelo;
         this.placa = placa;
-        this.usuarioTemporario = usuarioTemporario ;
     }
 
 

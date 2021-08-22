@@ -1,5 +1,5 @@
 .idea/*
 .properties
-target/*
+*/target/*
 
 application.properties

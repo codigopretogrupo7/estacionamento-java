@@ -16,3 +16,4 @@ protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
     return builder.sources(Main.class);
 }
 }
+

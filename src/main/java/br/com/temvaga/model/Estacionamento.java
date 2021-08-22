@@ -13,6 +13,8 @@ public class Estacionamento {
     private String  nomeEstacionamento;
     @Column(name = "descricao")
     private String  descricao;
+
+    @Lob
     @Column(name = "foto")
     private String foto;
 
@@ -61,7 +63,15 @@ public class Estacionamento {
     @JoinColumn(name = "fk_usuario")
     private Usuario usuario;
 
-    //gets
+public String getFoto() {
+    return foto;
+}
+
+public void setFoto(String foto) {
+    this.foto = foto;
+}
+
+//gets
 
     public String getMode() {return mode;}
     public int getUsuario() {
@@ -75,9 +85,6 @@ public class Estacionamento {
     }
     public String getDescricao() {
         return descricao;
-    }
-    public String getFoto() {
-        return foto;
     }
     public String getCEP() {
         return CEP;
@@ -143,9 +150,6 @@ public class Estacionamento {
     }
     public void setDescricao(String descricao) {
         this.descricao = descricao;
-    }
-    public void setFoto(String foto) {
-        this.foto = foto;
     }
     public void setCEP(String CEP) {
         this.CEP = CEP;

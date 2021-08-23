@@ -19,7 +19,6 @@ import java.util.Optional;
 @Service
 public class EstacionamentoService {
 
-    private static String caminhoImagens = "/home/lucas/IdeaProjects/estacionamento-java/src/main/";
 
     @Autowired
     private EstacionamentoRepository estacionamentoRepository;

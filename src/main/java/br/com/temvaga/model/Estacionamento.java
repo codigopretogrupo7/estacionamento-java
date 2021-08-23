@@ -209,27 +209,7 @@ public void setFoto(String foto) {
 
     //constructors
     public Estacionamento(
-            Integer id,
-            String nomeEstacionamento,
-            String descricao,
-            String foto,
-            String CEP,
-            String estado,
-            String bairro,
-            String logadouro,
-            String numero,
-            String lat,
-            String lng,
-            Integer numVagas,
-            Double vlHora,
-            Double vlDiaria,
-            Double vlAdicional,
-            String frame,
-            String hrAbertura,
-            String hrFechamento,
-            String emailEstacionamento,
-            String senhaEstacionamento,
-            Usuario usuario) {
+            Integer id) {
         this.id = id;
         this.nomeEstacionamento = nomeEstacionamento;
         this.descricao = descricao;

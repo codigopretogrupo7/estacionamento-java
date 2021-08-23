@@ -34,6 +34,7 @@ public class EstacionamentoController {
     @GetMapping(value = "/list")
     public ResponseEntity<ArrayList<Estacionamento>> listTodosEstacionamentos() {
         return estacionamentoService.ListaTodosEstacionamentos();
+
     }
 
     @ApiOperation(value = "Listar um estacionamento cadastrado pelo seu id")

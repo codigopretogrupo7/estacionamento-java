@@ -25,6 +25,12 @@ public class VagaController {
         return vagaService.todasAsVagas();
     }
 
+    @ApiOperation(value="Lista uma vaga por id")
+    @GetMapping("/listid")
+    public ResponseEntity<Vaga> listaVaga(@RequestParam(name="id") Integer id){
+        return vagaService.vagaPorId(id);
+    }
+
     @ApiOperation(value = "Listar vagas de um estacionamento especifico pelo seu id")
     @GetMapping(value="/listvaga")
     public ResponseEntity<ArrayList<Vaga>> listaVagas(@RequestParam(name="id") Integer id ) {

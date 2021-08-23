@@ -11,16 +11,19 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Optional;
-import java.util.Random;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 
 @Service
 public class VagaService {
 
     Calendar calendario = Calendar.getInstance();
+    Locale local = new Locale("PT","BR");
+    SimpleDateFormat hora = new SimpleDateFormat("HH:mm:ss");
+    SimpleDateFormat dia = new SimpleDateFormat("d");
+    SimpleDateFormat mes = new SimpleDateFormat("M");
+
     Random random = new Random();
 
     @Autowired
@@ -29,6 +32,16 @@ public class VagaService {
     VagaRepository vagaRepository;
     @Autowired
     VeiculoRepository veiculoRepository;
+
+    public ResponseEntity<Vaga> vagaPorId(Integer id){
+        Optional<Vaga> vaga = vagaRepository.findById(id);
+
+        if(vaga.isPresent()){
+            return new ResponseEntity<Vaga>(vaga.get(),HttpStatus.OK);
+        }else{
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
 
     public ResponseEntity<ArrayList<Vaga>> todasAsVagas(){
         ArrayList<Vaga> vagas = (ArrayList<Vaga>) vagaRepository.findAll();
@@ -90,7 +103,9 @@ public class VagaService {
 
                 Vaga vagaSorteada = vagasVazias.get(numeroSorteado);
                 vagaSorteada.setVeiculo(veiculo.get());
-                vagaSorteada.setDtEntrada(calendario.getTime());
+                vagaSorteada.setHora_entrada(hora.format(calendario.getTime()).toString());
+                vagaSorteada.setDia_entrada(dia.format(calendario.getTime()).toString());
+                vagaSorteada.setMes_entrada(mes.format(calendario.getTime()).toString());
                 vagaSorteada.setSituacao("reservada");
                 vagaRepository.save(vagaSorteada);
                 return new ResponseEntity<Vaga>(vagaSorteada,HttpStatus.OK);
@@ -110,7 +125,9 @@ public class VagaService {
         if( veiculo.isPresent() ){
             Vaga vagaCriada = vaga.get();
             vagaCriada.setVeiculo(veiculo.get());
-            vagaCriada.setDtEntrada(calendario.getTime());
+            vagaCriada.setHora_entrada(hora.format(calendario.getTime()).toString());
+            vagaCriada.setDia_entrada(dia.format(calendario.getTime()).toString());
+            vagaCriada.setMes_entrada(mes.format(calendario.getTime()).toString());
             vagaCriada.setSituacao("ocupada");
 
             vagaRepository.save(vagaCriada);
@@ -126,7 +143,9 @@ public class VagaService {
         if( vaga.isPresent() ){
             Vaga vagaCriada = vaga.get();
             vagaCriada.setVeiculo(null);
-            vagaCriada.setDtEntrada(null);
+            vagaCriada.setHora_entrada(null);
+            vagaCriada.setDia_entrada(null);
+            vagaCriada.setMes_entrada(null);
             vagaCriada.setSituacao("vazia");
 
             vagaRepository.save(vagaCriada);

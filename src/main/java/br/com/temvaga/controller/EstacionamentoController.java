@@ -42,8 +42,6 @@ public class EstacionamentoController {
     public ResponseEntity<Estacionamento> listEstacionamentoPorId(@RequestParam(name = "id") Integer id) {
         return estacionamentoService.ListaEstacionamentoPorId(id);
     }
-//,
-//                                                            @RequestParam("File") MultipartFile arquivo) throws IOException
 
     @ApiOperation(
             value = "Cadastra um novo estacionamento",
@@ -71,6 +69,14 @@ public class EstacionamentoController {
     public ResponseEntity<Estacionamento> deleteEstacionamento(@RequestParam(name = "id") Integer id) {
         return estacionamentoService.DeletarEstacionamento(id);
     }
+
+    @ApiOperation(value = "Login de estacionamento")
+    @PostMapping(value = "/login")
+    public ResponseEntity<Estacionamento> loginEstacionamento(@RequestBody Estacionamento estacionamento ){
+        return estacionamentoService.BuscarPorEmail(estacionamento.getEmailEstacionamento(), estacionamento.getSenhaEstacionamento());
+    }
+
+
 }
 
 

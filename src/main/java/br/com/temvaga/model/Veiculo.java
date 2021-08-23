@@ -15,8 +15,7 @@ import javax.persistence.JoinColumn;
 @Table(name = "veiculo")
 public class Veiculo {
     @Id
-    @GeneratedValue(generator = "increment")
-    @GenericGenerator(name="increment", strategy = "increment")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String cor;
     private String modelo;

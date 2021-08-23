@@ -11,8 +11,7 @@ import java.util.Date;
 @Table(name = "gerenciamento")
 public class Gerenciamento {
     @Id
-    @GeneratedValue(generator = "increment")
-    @GenericGenerator(name="increment", strategy = "increment")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private Integer id;
     @Column(name="data_hora")

@@ -1,7 +1,7 @@
 package br.com.temvaga.constants;
 
 public class SecurityConstants {
-    public static final String[] SIGN_UP_URL = {"/api/usuarios/add","/api/estacionamentos/login","/api/vagas/insertveiculo**","/api/vagas/checkout**"};
+    public static final String[] SIGN_UP_URL = {"/api/usuarios/add","/api/estacionamentos/login**","/api/vagas/insertveiculo**","/api/vagas/checkout**"};
     public static final String[] URLS = {
             "/api/usuarios/list/name**",
             "/api/estacionamentos/list**",

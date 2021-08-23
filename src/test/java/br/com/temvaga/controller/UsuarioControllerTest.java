@@ -28,7 +28,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @AutoConfigureMockMvc
 @RunWith(SpringRunner.class)
-@WithMockUser(username = "root")' '                                                                         
+@WithMockUser(username = "root")' '
 
 @WebMvcTest(UsuarioController.class)
 public class UsuarioControllerTest {

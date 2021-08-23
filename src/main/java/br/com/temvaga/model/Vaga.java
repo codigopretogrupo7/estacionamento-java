@@ -1,5 +1,7 @@
 package br.com.temvaga.model;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -8,7 +10,8 @@ import java.util.Date;
 @Table(name = "vaga")
 public class Vaga {
    @Id
-   @GeneratedValue(strategy = GenerationType.IDENTITY)
+   @GeneratedValue(generator = "increment")
+   @GenericGenerator(name="increment", strategy = "increment")
    @Column(name="id")
    private Integer id;
 

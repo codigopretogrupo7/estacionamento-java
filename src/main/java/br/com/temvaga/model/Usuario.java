@@ -1,5 +1,7 @@
 package br.com.temvaga.model;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Entity;
@@ -17,7 +19,8 @@ import java.util.List;
 public class Usuario {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(generator = "increment")
+    @GenericGenerator(name="increment", strategy = "increment")
     @Column(name = "id")
     private Integer id;
     @Column(name = "nome")

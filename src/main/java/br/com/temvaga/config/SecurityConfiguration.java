@@ -52,8 +52,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Bean
     CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration conf  = new CorsConfiguration().applyPermitDefaultValues();
-        conf.setAllowedOriginPatterns(Collections.singletonList("https://temvaga.vercel.app"));
-        conf.setAllowedOrigins(Collections.singletonList("https://temvaga.vercel.app"));
+        conf.setAllowedOriginPatterns(Collections.singletonList("http://localhost:3000"));
+        conf.setAllowedOrigins(Collections.singletonList("http://localhost:3000"));
         conf.setAllowedMethods(Arrays.asList("GET","POST", "PUT", "DELETE", "PATCH", "OPTIONS"));
         conf.setExposedHeaders(Arrays.asList("Authorization", "content-type"));
         conf.setExposedHeaders(Arrays.asList("token", "content-type"));

@@ -1,5 +1,7 @@
 package br.com.temvaga.model;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 import java.util.Date;
 

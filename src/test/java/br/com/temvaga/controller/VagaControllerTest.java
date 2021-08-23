@@ -41,7 +41,6 @@ public class VagaControllerTest {
 
     @Test
     public void deveRetornarSucesso_VagasLivres() throws Exception{
-        Vaga vag = new Vaga(1);
         Mockito.when(vagaService.vagaslivres(1)).thenReturn(new ResponseEntity<Integer>(HttpStatus.OK));
         this.mockMvc.perform(
                         get("/api/vagaslivres/id")

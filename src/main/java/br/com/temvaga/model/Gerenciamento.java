@@ -1,5 +1,7 @@
 package br.com.temvaga.model;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 import java.sql.Time;
 import java.util.Date;
@@ -10,6 +12,7 @@ import java.util.Date;
 public class Gerenciamento {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Integer id;
     @Column(name="data_hora")
     private Date dataHora;

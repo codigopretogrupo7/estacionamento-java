@@ -1,6 +1,8 @@
 package br.com.temvaga.model;
 
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Entity;

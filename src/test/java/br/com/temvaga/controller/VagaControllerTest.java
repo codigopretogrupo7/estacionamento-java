@@ -44,7 +44,7 @@ public class VagaControllerTest {
         Vaga vag = new Vaga(1);
         Mockito.when(vagaService.vagaslivres(1)).thenReturn(new ResponseEntity<Integer>(HttpStatus.OK));
         this.mockMvc.perform(
-                        get("/api/vagaslivres")
+                        get("/api/vagaslivres/id")
                                 .queryParam("id","1")
                                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());

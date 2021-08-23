@@ -36,10 +36,10 @@ public class UsuarioService {
     }
 
     public ResponseEntity<Usuario> usuarioByNameUser(String nome) {
-        try {
-            Usuario usuario = usuarioRepository.findByNome(nome);
-            return new ResponseEntity<>(usuario, HttpStatus.OK);
-        } catch (NullPointerException exception){
+        Optional<Usuario> usuario = Optional.ofNullable(usuarioRepository.findByNome(nome));
+        if(usuario.isPresent()){
+            return new ResponseEntity<Usuario>(usuario.get(), HttpStatus.OK);
+        }else{
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }

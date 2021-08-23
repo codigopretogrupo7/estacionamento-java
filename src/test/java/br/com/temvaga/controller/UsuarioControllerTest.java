@@ -1,6 +1,7 @@
 package br.com.temvaga.controller;
 
 
+import br.com.temvaga.model.Estacionamento;
 import br.com.temvaga.model.Usuario;
 import br.com.temvaga.service.UsuarioService;
 import io.restassured.http.ContentType;
@@ -27,7 +28,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @AutoConfigureMockMvc
 @RunWith(SpringRunner.class)
-@WithMockUser(username = "root")
+@WithMockUser(username = "root")' '                                                                         
 
 @WebMvcTest(UsuarioController.class)
 public class UsuarioControllerTest {
@@ -62,14 +63,12 @@ public class UsuarioControllerTest {
 
     @Test
     public void deveRetornarNotFound_QuandoBurcaUsuárioPorNome() throws Exception{
-        Mockito.when(usuarioService.usuarioByNameUser("Teste")).thenReturn(new ResponseEntity<Usuario>( HttpStatus.NOT_FOUND));
+        Mockito.when(usuarioService.usuarioByNameUser("teste")).thenReturn(new ResponseEntity<Usuario>( HttpStatus.NOT_FOUND));
         this.mockMvc.perform(
                         get("/api/usuarios/list/name")
-                                .queryParam("username","test")
+                                .queryParam("username","teste")
                                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNotFound());
-
-
     }
 
 

@@ -62,7 +62,15 @@ public class EstacionamentoControllerTest {
                 .andExpect(status().isNotFound());
     }
 
-
+    @Test
+    public void  deveRetornarListaDeEstacionameto_QuandoBuscarEstacionamen() throws Exception{
+        Mockito.when(estacionamentoService.ListaEstacionamentoPorId(1)).thenReturn(new ResponseEntity<Estacionamento>(HttpStatus.NOT_FOUND));
+        this.mockMvc.perform(
+                        get("/api/estacionamentos/list")
+                                .queryParam("id","1")
+                                .accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isNotFound());
+    }
 
     }
 

@@ -1,5 +1,6 @@
 package br.com.temvaga.controller;
 
+import br.com.temvaga.model.Estacionamento;
 import br.com.temvaga.model.Vaga;
 import br.com.temvaga.service.VagaService;
 import org.junit.Test;
@@ -25,7 +26,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @AutoConfigureMockMvc
 @RunWith(SpringRunner.class)
-@WithMockUser(username = "root")
+@WithMockUser(username = "cristala")
 
 @WebMvcTest(VagaController.class)
 public class VagaControllerTest {
@@ -43,7 +44,7 @@ public class VagaControllerTest {
     public void deveRetornarSucesso_VagasLivres() throws Exception{
         Mockito.when(vagaService.vagaslivres(1)).thenReturn(new ResponseEntity<Integer>(HttpStatus.OK));
         this.mockMvc.perform(
-                        get("/api/vagaslivres/id")
+                        get("/api/vagas/listvaga")
                                 .queryParam("id","1")
                                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
@@ -58,6 +59,7 @@ public class VagaControllerTest {
                                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNotFound());
     }
+
 
 
 

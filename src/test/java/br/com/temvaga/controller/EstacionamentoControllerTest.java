@@ -17,6 +17,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.security.test.context.support.WithMockUser;
 
+import java.util.ArrayList;
+
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -64,12 +66,12 @@ public class EstacionamentoControllerTest {
 
     @Test
     public void  deveRetornarListaDeEstacionameto_QuandoBuscarEstacionamen() throws Exception{
-        Mockito.when(estacionamentoService.ListaEstacionamentoPorId(1)).thenReturn(new ResponseEntity<Estacionamento>(HttpStatus.NOT_FOUND));
+        Mockito.when(estacionamentoService.ListaTodosEstacionamentos()).thenReturn(new ResponseEntity<ArrayList<Estacionamento>>(HttpStatus.OK));
         this.mockMvc.perform(
                         get("/api/estacionamentos/list")
                                 .queryParam("id","1")
                                 .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isNotFound());
+                .andExpect(status().isOk());
     }
 
     }

@@ -1,0 +1,110 @@
+create database if not exists temvaga;
+use temvaga;
+
+create table if not exists usuario(
+
+    id int not null auto_increment,
+
+    nome varchar(20) not null,
+    sobrenome varchar(100) not null,
+    cnh varchar(20),
+    telefone varchar(20),
+    
+    mode varchar(50),
+
+    email varchar(200) ,
+    senha varchar(200) ,
+    
+    primary key(id)
+);
+
+create table if not exists veiculo(
+    
+    id int not null auto_increment,
+    
+    modelo varchar(50) not null,
+    cor varchar(50) not null,
+    placa varchar(20) not null,
+    usuario_temporario varchar(200),
+    
+    fk_usuario int ,
+    
+    primary key(id),
+	foreign key(fk_usuario) references usuario(id)
+);
+
+create table if not exists estacionamento(
+    
+    id int not null auto_increment,
+    
+    nome varchar(100) ,
+    descricao text,
+    foto longtext,
+    
+    cep varchar(10) ,
+    estado varchar(5) ,
+    cidade varchar(100) ,
+    bairro varchar(100) ,
+    logradouro varchar(200) ,
+    numero varchar(10) ,
+    latitude varchar(300),
+    longitude varchar(300),
+    telefone varchar(20),
+	
+    numero_vagas int ,
+    valor_hora double(10,2) ,
+    demais_valor_hora double(10,2) ,
+    valor_diaria double(10,2),
+    frame text,
+    horario_abertura time,
+    horario_fechamento time,
+    mode varchar(30),
+    
+    email varchar(200),
+    senha varchar(200),
+    
+    fk_usuario int ,
+    
+    
+    primary key(id),
+	foreign key(fk_usuario) references usuario(id)
+);
+
+
+create table if not exists vaga(
+    
+    id int not null auto_increment,
+    num_vaga varchar(10),
+    
+    situacao enum('vazia','reservada','ocupada'),
+    hora_entrada varchar(50),
+    
+    fk_estacionamento int not null,
+    fk_veiculo int,
+ 
+    primary key(id),
+    foreign key(fk_estacionamento) references estacionamento(id),
+    foreign key(fk_veiculo) references veiculo(id)
+);
+
+create table if not exists gerenciamento(
+	
+    id int not null auto_increment,
+    
+    data_hora datetime not null,
+    
+    hora_entrada time not null,
+    hora_saida time not null,
+    valor_recebido double not null,
+    
+    fk_estacionamento int not null,
+    fk_vaga int not null,
+    fk_veiculo int not null,
+    fk_usuario int not null,
+    
+    primary key(id),
+    foreign key(fk_estacionamento) references estacionamento(id),
+    foreign key(fk_vaga) references vaga(id),
+    foreign key(fk_veiculo) references veiculo(id),
+    foreign key(fk_usuario) references usuario(id)
+);
